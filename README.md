@@ -4,7 +4,7 @@ Welcome to my Engineering Portfolio! This repository showcases a curated selecti
 
 ## About Me
 
-I'm Arye Mindell, an electrical engineer with expertise in analog circuit design, digital systems, embedded programming, robotics, and signal processing. My experiences include detailed operational amplifier design, prime number counter development, robotics software implementation, and interdisciplinary engineering solutions such as autonomous sensor vehicles.
+I'm Arye Mindell, an electrical engineer passionate about signal processing, embedded systems, audio technology, and the intersection of engineering with creative arts. My background includes experiences at Aurora Flight Sciences and Humatics Inc., as well as involvement in STEM education and mentoring through FIRST Robotics and LMU Hillel.
 
 ## Portfolio Highlights
 
