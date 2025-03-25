@@ -17,7 +17,7 @@ Explore the individual projects for deeper insights into my approach to electric
 
 ## Contact
 
-- **Email:** [your-email@example.com]
-- **LinkedIn:** [linkedin.com/in/aryemindell]
+- **Email:** [arimindell@gmail.com]
+- **LinkedIn:** [www.linkedin.com/in/arye-mindell]
 
 Thank you for visiting!
