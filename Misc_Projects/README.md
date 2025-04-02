@@ -6,7 +6,7 @@ This folder contains images and brief descriptions of various engineering projec
 
 - **FRC 1389 Maelstrom Shooter Arm Redesign:**
   - Redesigned the robot's shooter/intake arm for reduced weight and improved ball centering using mecanum wheels for enhanced intake efficiency.
-  ![FRC 1389 Maelstrom Shooter Arm Redesign](images/maelstrom_shooter_arm.jpg)
+  ![FRC 1389 Maelstrom Shooter Arm Redesign](engineering-portfolio/images/maelstrom_shooter_arm.jpg)
 
 - **Truss Design:**
   - Engineered a wooden truss structure using static analysis principles to optimize load-bearing capacity.
