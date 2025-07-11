@@ -11,6 +11,7 @@ I'm Arye Mindell, an electrical engineer passionate about signal processing, emb
 - **Operational Amplifier Design:** Designed and simulated a multi-stage operational amplifier meeting strict gain, input/output impedance, and bandwidth specifications.
 - **Prime Counter Circuit:** Developed a synchronous digital counter implementing sequential logic to cycle through prime numbers using JK flip-flops.
 - **Robotics and Embedded Systems:** Contributed to FIRST Robotics, developing reusable libraries, autonomous path-following algorithms, computer vision systems, and real-time web dashboards.
+- **Dogfight AIsteroids (AI Game Development):** Modernised Atari’s *Asteroids* into a 3-D space dog-fighting prototype with Behaviour-Tree and deep-RL opponents.  See the full project in [`CMSI_Final_Proj_Asteroids/`](CMSI_Final_Proj_Asteroids/).
 - **Sensor Vehicle Prototyping (OSV):** Engineered sensor rigs and drivetrain systems, addressing challenges in robotics prototyping, structural design, and system integration.
 
 Explore the individual projects for deeper insights into my approach to electrical engineering, design processes, and technical problem-solving.
