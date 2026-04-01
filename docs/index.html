@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arye Mindell | Electrical Engineer Portfolio</title>
+  <meta name="description" content="Engineering portfolio of Arye Mindell — electrical engineer specializing in signal processing, embedded systems, audio technology, and robotics.">
+  <meta property="og:title" content="Arye Mindell | Electrical Engineer Portfolio">
+  <meta property="og:description" content="Electrical engineer specializing in signal processing, embedded systems, audio technology, and robotics. Explore projects from Aurora Flight Sciences, Humatics Inc., FIRST Robotics, and LMU.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amindell11.github.io/engineering-portfolio/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ====== Header ====== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Home">A<span>.</span>Mindell</a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <p class="hero__greeting">Hello, I'm</p>
+      <h1 class="hero__name">Arye Mindell</h1>
+      <p class="hero__title">Electrical Engineer</p>
+      <p class="hero__tagline">Passionate about signal processing, embedded systems, audio technology, and the intersection of engineering with creative arts.</p>
+      <a href="#projects" class="hero__cta">
+        View My Work
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </a>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ====== About ====== -->
+  <section class="about" id="about">
+    <div class="container">
+      <p class="section-label fade-in">About Me</p>
+      <h2 class="section-title fade-in">Engineer. Builder. Problem Solver.</h2>
+      <div class="about__grid">
+        <div class="about__text fade-in">
+          <p>I'm an electrical engineer with hands-on experience spanning signal processing, embedded systems, audio technology, and robotics. My background includes professional work at <strong>Aurora Flight Sciences</strong> and <strong>Humatics Inc.</strong>, where I contributed to precision positioning systems and autonomous platforms.</p>
+          <p>Through <strong>FIRST Robotics (Team 1389)</strong>, I developed reusable software libraries, autonomous path-following algorithms, computer vision systems, and real-time web dashboards. I'm also dedicated to STEM education and mentoring through LMU Hillel and community outreach.</p>
+          <p>I approach engineering with a focus on clean design, rigorous testing, and practical solutions -- whether that means designing a multi-stage op-amp, training a deep RL agent, or wiring a robot's electrical board on a rotating turret.</p>
+        </div>
+        <div class="about__highlights fade-in">
+          <div class="about__stat">
+            <div class="about__stat-value">9+</div>
+            <div class="about__stat-label">Portfolio Projects</div>
+          </div>
+          <div class="about__stat">
+            <div class="about__stat-value">2</div>
+            <div class="about__stat-label">Industry Internships</div>
+          </div>
+          <div class="about__stat">
+            <div class="about__stat-value">4+</div>
+            <div class="about__stat-label">Years FIRST Robotics</div>
+          </div>
+          <div class="about__stat">
+            <div class="about__stat-value">EE</div>
+            <div class="about__stat-label">Electrical Engineering</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Projects ====== -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <p class="section-label fade-in">Portfolio</p>
+      <h2 class="section-title fade-in">Featured Projects</h2>
+      <div class="projects__grid">
+
+        <!-- Dogfight AIsteroids -->
+        <article class="project-card fade-in">
+          <img src="assets/images/asteroids/demo-screenshot-1.png" alt="Dogfight AIsteroids gameplay showing player ship in a 3D asteroid field" class="project-card__image" loading="lazy">
+          <div class="project-card__body">
+            <h3 class="project-card__title">Dogfight AIsteroids</h3>
+            <p class="project-card__desc">Modernized Atari's Asteroids into a 3D space dogfighting prototype with Behaviour Tree and deep Reinforcement Learning (PPO) opponents in Unity.</p>
+            <div class="project-card__tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">PPO</span>
+              <span class="tag">Reinforcement Learning</span>
+              <span class="tag">ML-Agents</span>
+            </div>
+            <a href="projects/dogfight-aisteroids.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- FRC Team 1389 -->
+        <article class="project-card fade-in">
+          <div class="project-card__image--placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 5.56a2.25 2.25 0 0 1-2.065 1.44H9.535a2.25 2.25 0 0 1-2.065-1.44L5 14.5m14 0H5"/></svg>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">FRC Team 1389 STRATUS</h3>
+            <p class="project-card__desc">FIRST Robotics Competition software: autonomous path-following algorithms, computer vision systems, reusable libraries, and real-time web dashboards.</p>
+            <div class="project-card__tags">
+              <span class="tag">Java</span>
+              <span class="tag">FRC</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Path Planning</span>
+            </div>
+            <a href="projects/frc-team-1389.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Junior Design Lab -->
+        <article class="project-card fade-in">
+          <div class="project-card__image--placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5"/></svg>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Junior Design Lab</h3>
+            <p class="project-card__desc">Two semesters of EE Junior Lab: multi-stage operational amplifier design and synchronous digital prime counter with JK flip-flops.</p>
+            <div class="project-card__tags">
+              <span class="tag">Op-Amp Design</span>
+              <span class="tag">Digital Logic</span>
+              <span class="tag">Circuit Simulation</span>
+              <span class="tag">LTSpice</span>
+            </div>
+            <a href="projects/junior-design-lab.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Humatics Internship -->
+        <article class="project-card fade-in">
+          <div class="project-card__image--placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z"/></svg>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Humatics Internship</h3>
+            <p class="project-card__desc">Internship at Humatics Inc. working with ultra-wideband precision positioning systems and hands-on assembly of the Apollo product.</p>
+            <div class="project-card__tags">
+              <span class="tag">UWB</span>
+              <span class="tag">Sensor Systems</span>
+              <span class="tag">Hardware Assembly</span>
+            </div>
+            <a href="projects/humatics-internship.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- OSV Autonomous Vehicle -->
+        <article class="project-card fade-in">
+          <div class="project-card__image--placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-1.5A3.375 3.375 0 0 0 14.25 12V8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v3.75"/></svg>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">OSV Autonomous Vehicle</h3>
+            <p class="project-card__desc">ENES100 "Urban Turtle" Over-Sand Vehicle: sensor rigs, drivetrain systems, and autonomous navigation for a robotics prototyping course.</p>
+            <div class="project-card__tags">
+              <span class="tag">Autonomous Nav</span>
+              <span class="tag">Sensor Integration</span>
+              <span class="tag">Arduino</span>
+            </div>
+            <a href="projects/osv-autonomous-vehicle.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Capstone -->
+        <article class="project-card fade-in">
+          <div class="project-card__image--placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Senior Capstone</h3>
+            <p class="project-card__desc">Senior capstone design project (2025) encompassing full design review, systems engineering, and comprehensive technical reporting.</p>
+            <div class="project-card__tags">
+              <span class="tag">Capstone</span>
+              <span class="tag">Systems Engineering</span>
+              <span class="tag">Design Review</span>
+            </div>
+            <a href="projects/capstone.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- IDT Coding Contest -->
+        <article class="project-card fade-in">
+          <div class="project-card__image--placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">IDT Coding Contest</h3>
+            <p class="project-card__desc">IDT Winter 2016 coding competition entry as team "The Flatlanders" -- competitive programming and embedded systems challenge.</p>
+            <div class="project-card__tags">
+              <span class="tag">Competitive Programming</span>
+              <span class="tag">Embedded Systems</span>
+              <span class="tag">IDT</span>
+            </div>
+            <a href="projects/idt-coding-contest.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Misc Projects -->
+        <article class="project-card fade-in">
+          <img src="assets/images/misc/maelstrom-shooter-arm.JPG" alt="FRC 1389 Maelstrom robot shooter arm redesign" class="project-card__image" loading="lazy">
+          <div class="project-card__body">
+            <h3 class="project-card__title">Miscellaneous Projects</h3>
+            <p class="project-card__desc">A gallery of hands-on engineering: robot arm redesigns, truss structures, IMU tilt tables, 3D printed parts, and Arduino circuits.</p>
+            <div class="project-card__tags">
+              <span class="tag">CAD</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Arduino</span>
+              <span class="tag">Prototyping</span>
+            </div>
+            <a href="projects/misc-projects.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Microwaves & Antennas -->
+        <article class="project-card fade-in">
+          <div class="project-card__image--placeholder" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Microwaves &amp; Antennas</h3>
+            <p class="project-card__desc">RF engineering coursework: microwave circuit analysis, antenna design, S-parameter measurements, and transmission line theory.</p>
+            <div class="project-card__tags">
+              <span class="tag">RF Engineering</span>
+              <span class="tag">Antennas</span>
+              <span class="tag">Microwave Circuits</span>
+              <span class="tag">S-Parameters</span>
+            </div>
+            <a href="projects/microwaves-antennas.html" class="project-card__link">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Contact ====== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <p class="section-label fade-in">Get in Touch</p>
+      <h2 class="section-title fade-in">Let's Connect</h2>
+      <p class="fade-in" style="color: var(--color-text-secondary); max-width: 560px; margin: 0 auto var(--space-8);">I'm always interested in new opportunities, collaborations, and conversations about engineering. Feel free to reach out.</p>
+      <div class="contact__links fade-in">
+        <a href="mailto:arimindell@gmail.com" class="contact__link" aria-label="Send email">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/arye-mindell" target="_blank" rel="noopener noreferrer" class="contact__link" aria-label="LinkedIn profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/amindell11" target="_blank" rel="noopener noreferrer" class="contact__link" aria-label="GitHub profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">&copy; 2025 Arye Mindell. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

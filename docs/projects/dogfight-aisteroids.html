@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dogfight AIsteroids | Arye Mindell</title>
+  <meta name="description" content="Dogfight AIsteroids: a 3D space dogfighting game modernizing Atari's Asteroids with Behaviour Tree and deep Reinforcement Learning opponents in Unity.">
+  <meta property="og:title" content="Dogfight AIsteroids | Arye Mindell">
+  <meta property="og:description" content="3D space dogfighting prototype with PPO Reinforcement Learning and Behaviour Tree AI opponents built in Unity.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Home">A<span>.</span>Mindell</a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="../index.html#about" class="nav__link">About</a></li>
+          <li><a href="../index.html#projects" class="nav__link">Projects</a></li>
+          <li><a href="../index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="project-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="project-hero__back">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Back to Portfolio
+      </a>
+      <h1 class="project-hero__title fade-in">Dogfight AIsteroids</h1>
+      <p class="project-hero__subtitle fade-in">CMSI 5998: AI Game Development &mdash; Capstone Project, Spring 2025</p>
+      <div class="project-hero__meta fade-in">
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
+          Loyola Marymount University
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+          Spring 2025
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-content">
+    <div class="container">
+      <div class="project-content__grid">
+        <div class="project-content__main">
+
+          <h2>Overview</h2>
+          <p><em>Dogfight AIsteroids</em> extends the core movement and asteroid-physics loop of Atari's 1979 <em>Asteroids</em> into a modern 3D space dogfighting prototype featuring intelligent, adaptive opponents. The project investigates whether deep Reinforcement Learning can produce convincing combat AI in a continuous, physics-heavy arena, and whether Behaviour Cloning accelerates PPO convergence.</p>
+
+          <h2>Gameplay Screenshots</h2>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/asteroids/demo-screenshot-1.png" alt="Player ship dog-fighting amongst asteroids in 3D space" loading="lazy">
+              <div class="gallery__caption">Player ship engaged in combat amongst asteroids</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/asteroids/demo-screenshot-2.png" alt="RL-powered enemy closing distance on the player ship" loading="lazy">
+              <div class="gallery__caption">RL-powered enemy closing distance on the player</div>
+            </div>
+          </div>
+
+          <h2>Key Features</h2>
+          <ul>
+            <li><strong>Modernized Gameplay:</strong> Hull integrity, shields, missiles, and concussion charges expand the classic Asteroids formula.</li>
+            <li><strong>Baseline "Dummy" AI:</strong> A deterministic behaviour-tree pilot provides a benchmark for learning agents and early play-tests.</li>
+            <li><strong>Deep RL Pilot:</strong> A Proximal Policy Optimization (PPO) agent, optionally pre-trained via Behaviour Cloning from human or baseline traces, learns to pursue, evade, and survive amidst dynamic asteroid fields.</li>
+            <li><strong>Evaluation Pipeline:</strong> Self-play analytics, five-player user study on believability and fun, and performance benchmarks targeting 300+ concurrent AI at 60 FPS.</li>
+          </ul>
+
+          <h2>RL Training Visualization</h2>
+          <p>The animation below captures a single PPO training episode. The agent discovers that shooting the enemy yields reward spikes, but a per-step penalty encourages shorter engagements. The ship periodically wanders (exploration) before re-engaging when the accumulated time cost outweighs idle exploration.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/asteroids/ppo-lesson-1.gif" alt="PPO agent alternating between exploration and exploitation during training" loading="lazy">
+              <div class="gallery__caption">PPO agent: explore vs. exploit behavior</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/asteroids/self-play-reward.png" alt="Self-play cumulative reward chart showing training convergence" loading="lazy">
+              <div class="gallery__caption">Self-play cumulative reward over training episodes</div>
+            </div>
+          </div>
+
+          <h2>Testing</h2>
+          <p>The Unity Test Framework (UTF) was employed for both EditMode and PlayMode tests. EditMode suites validate deterministic utilities such as path-planning, collision-damage helpers, and reward calculators. PlayMode tests spin up headless arenas to ensure health systems, BT state transitions, and RL episode resets behave as expected. CI runs all tests on every push with coverage thresholds gating merges.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/asteroids/tests-passing.png" alt="All Unity Test Framework tests passing" loading="lazy">
+              <div class="gallery__caption">All UTF tests passing prior to final submission</div>
+            </div>
+          </div>
+
+          <h2>Research Questions</h2>
+          <ul>
+            <li><strong>R1:</strong> Does PPO with BC pre-training achieve a significantly higher player kill-rate than a rule-based Dummy within 1M environment steps?</li>
+            <li><strong>R2:</strong> Does BC from human traces outperform BC from Dummy traces in terms of convergence speed (episodes to reach &gt;60% win-rate)?</li>
+          </ul>
+
+        </div>
+
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Technologies</h3>
+            <div class="sidebar-card__tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">PPO</span>
+              <span class="tag">Reinforcement Learning</span>
+              <span class="tag">Behaviour Trees</span>
+              <span class="tag">ML-Agents</span>
+              <span class="tag">Behaviour Cloning</span>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Links</h3>
+            <div class="sidebar-card__links">
+              <a href="https://github.com/amindell11/astronomical-home" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                Full Source Repository
+              </a>
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/CMSI_Final_Proj_Asteroids/CMSI_5998_final_proj_proposal.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Project Proposal (PDF)
+              </a>
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/CMSI_Final_Proj_Asteroids/Presentation.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Presentation Slides (PDF)
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">&copy; 2025 Arye Mindell. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
