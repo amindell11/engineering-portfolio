@@ -290,8 +290,8 @@ button:focus-visible {
   left: 0;
   width: 200%;
   height: 100%;
-  background: url('../assets/images/hero-collage.jpg') repeat-x left center / 50% 100%;
-  animation: hero-scroll 60s linear infinite;
+  background: url('../assets/images/hero-collage.jpg') repeat-x left top / auto 100%;
+  animation: hero-scroll 45s linear infinite;
   z-index: 0;
 }
 
