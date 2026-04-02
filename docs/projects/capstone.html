@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Senior Capstone | Arye Mindell</title>
-  <meta name="description" content="Senior capstone design project (2025): full design review, systems engineering, and comprehensive technical reporting.">
+  <meta name="description" content="Senior capstone: autonomous ball-catching robotic arm using an ABB IRB 1200, LiDAR tracking, stereo vision, ROS 2 MoveIt motion planning, and Gazebo simulation.">
   <meta property="og:title" content="Senior Capstone | Arye Mindell">
-  <meta property="og:description" content="Senior capstone design project with full design review and systems engineering.">
+  <meta property="og:description" content="Autonomous ball-catching robotic arm with LiDAR, computer vision, and ROS 2 MoveIt motion planning.">
   <meta property="og:type" content="article">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
         Back to Portfolio
       </a>
       <h1 class="project-hero__title fade-in">Senior Capstone</h1>
-      <p class="project-hero__subtitle fade-in">Senior Design Project &mdash; 2025</p>
+      <p class="project-hero__subtitle fade-in">Autonomous Ball-Catching Robotic Arm &mdash; EECE 4100</p>
       <div class="project-hero__meta fade-in">
         <div class="project-hero__meta-item">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
@@ -47,7 +47,11 @@
         </div>
         <div class="project-hero__meta-item">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
-          2025
+          2025&ndash;2026
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
+          ROS 2 &amp; MoveIt
         </div>
       </div>
     </div>
@@ -58,19 +62,97 @@
       <div class="project-content__grid">
         <div class="project-content__main">
 
+          <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>The senior capstone design project represents the culmination of my undergraduate electrical engineering education. This multi-semester project encompassed the full engineering design lifecycle: requirements analysis, conceptual design, detailed design, prototyping, testing, and final design review.</p>
+          <p>The senior capstone project is an <strong>autonomous ball-catching robotic arm</strong> system. The goal is for a robotic arm to detect a thrown ball in real time, predict its trajectory, plan a collision-free motion, and move to an intercept position to catch it &mdash; all within the fraction of a second the ball is in flight. The system integrates an ABB industrial robot arm, LiDAR-based 3D perception, stereo camera tracking, and ROS 2 with MoveIt for real-time motion planning.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/arm-lab-setup.jpg" alt="ABB robotic arm in the lab with overhead LiDAR sensor and workspace setup" loading="lazy">
+              <div class="gallery__caption">Physical lab setup &mdash; ABB arm with overhead LiDAR sensor and catch workspace</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/workspace-layout.png" alt="SketchUp model showing workspace layout with robot arm, LiDAR, tracking camera, and obstacle boundaries" loading="lazy">
+              <div class="gallery__caption">SketchUp workspace layout &mdash; arm, LiDAR, tracking camera, and obstacle boundaries</div>
+            </div>
+          </div>
 
-          <h2>Design Process</h2>
+          <!-- ==================== PERCEPTION ==================== -->
+          <h2>Perception &amp; Sensor Fusion</h2>
+          <p>The perception pipeline combines multiple sensing modalities to detect and track the ball in 3D space:</p>
           <ul>
-            <li><strong>Requirements Analysis:</strong> Defined project scope, constraints, and success criteria through stakeholder engagement and technical feasibility assessment.</li>
-            <li><strong>Systems Engineering:</strong> Applied structured systems engineering methodology to decompose the problem, allocate requirements to subsystems, and manage interfaces.</li>
-            <li><strong>Design Reviews:</strong> Conducted formal design reviews including midterm progress reports and a comprehensive final design review presentation.</li>
-            <li><strong>Technical Documentation:</strong> Produced detailed engineering reports documenting design decisions, analysis results, test data, and lessons learned.</li>
+            <li><strong>LiDAR 3D scanning:</strong> An overhead LiDAR sensor provides a dense point cloud of the workspace, used for environment mapping, obstacle detection, and calibration of the sensor-to-robot coordinate frame.</li>
+            <li><strong>Stereo camera calibration:</strong> A stereo camera pair was calibrated using a dot-pattern calibration board, enabling depth estimation from disparity for ball position triangulation.</li>
+            <li><strong>Ball detection:</strong> Computer vision algorithms detect the ball in the camera feed, producing real-time 3D position estimates that feed into the trajectory predictor.</li>
+            <li><strong>Sensor-to-robot registration:</strong> Extrinsic calibration between the LiDAR, cameras, and the robot base frame ensures all position data is transformed into a common coordinate system for accurate motion planning.</li>
           </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/rviz-lidar-camera.png" alt="RViz visualization showing LiDAR point cloud overlaid on robot model alongside live camera feed" loading="lazy">
+              <div class="gallery__caption">RViz with LiDAR point cloud overlay and live camera feed &mdash; Foxglove bridge for visualization</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/lidar-calibration.png" alt="LiDAR 3D point cloud scan of calibration board used for sensor-to-robot registration" loading="lazy">
+              <div class="gallery__caption">LiDAR 3D scan of calibration board for sensor-to-robot coordinate registration</div>
+            </div>
+          </div>
 
-          <h2>Documentation</h2>
-          <p>The final design review and midterm report below provide comprehensive documentation of the project's technical approach and outcomes.</p>
+          <!-- ==================== TRAJECTORY PREDICTION ==================== -->
+          <h2>Trajectory Prediction</h2>
+          <p>Once the ball is detected, its trajectory must be predicted in real time to determine where and when the arm should intercept it. The system uses a <strong>ballistic state estimator</strong> that fits incoming position measurements to a physics-based projectile model, accounting for gravity and air resistance:</p>
+          <ul>
+            <li><strong>Reachable workspace analysis:</strong> The arm's reachable volume was computed and visualized as a 3D envelope, defining the set of feasible intercept points. Only trajectories passing through this volume are deemed catchable.</li>
+            <li><strong>Trajectory sampling:</strong> Multiple candidate ball trajectories from different throw angles and speeds were simulated to validate the workspace coverage and identify blind spots.</li>
+            <li><strong>State estimation:</strong> A recursive estimator refines the predicted landing point as new camera frames arrive, converging to a stable intercept target within the first few frames of flight.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/trajectory-workspace.png" alt="3D visualization of the arm's reachable workspace as a fan-shaped envelope with ball trajectory arcs" loading="lazy">
+              <div class="gallery__caption">Reachable workspace envelope &mdash; catchable zone defined by arm kinematics</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/trajectory-side-view.png" alt="Side view of simulated ball trajectories arcing through the robot arm's reachable workspace" loading="lazy">
+              <div class="gallery__caption">Simulated ball trajectories (side view) &mdash; arcs passing through the intercept zone</div>
+            </div>
+          </div>
+
+          <!-- ==================== MOTION PLANNING ==================== -->
+          <h2>Motion Planning &amp; Control</h2>
+          <p>The arm's motion is planned and executed using <strong>ROS 2</strong> with the <strong>MoveIt</strong> motion planning framework. The pipeline must generate collision-free joint trajectories in real time, fast enough to beat the ball to the intercept point:</p>
+          <ul>
+            <li><strong>MoveIt integration:</strong> The arm's URDF model was configured in MoveIt with collision meshes, joint limits, and planning groups. The planner generates smooth, collision-aware trajectories from any current configuration to the target catch pose.</li>
+            <li><strong>Gazebo simulation:</strong> The full system was developed and tested in Gazebo before deploying to the physical robot, using a simulated camera to validate the perception-to-planning pipeline end-to-end.</li>
+            <li><strong>Joint position tracking:</strong> Real-time joint state feedback (position x, y, z) was monitored against commanded trajectories using Foxglove, ensuring the physical arm accurately follows planned motions with minimal tracking error.</li>
+            <li><strong>Obstacle avoidance:</strong> MoveIt's collision-aware planning ensures the arm avoids workspace boundaries and known obstacles (tables, sensor mounts) while reaching the intercept pose.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/moveit-planning.png" alt="MoveIt motion planning interface in RViz showing robot arm with multiple planned trajectory paths" loading="lazy">
+              <div class="gallery__caption">MoveIt motion planning in RViz &mdash; collision-aware trajectory generation</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/gazebo-simulation.png" alt="Gazebo physics simulation showing robot arm with simulated camera rays for ball detection" loading="lazy">
+              <div class="gallery__caption">Gazebo simulation environment with camera ray visualization for testing</div>
+            </div>
+          </div>
+
+          <!-- ==================== SYSTEM INTEGRATION ==================== -->
+          <h2>System Integration &amp; Testing</h2>
+          <p>Bringing the full pipeline together &mdash; perception, prediction, planning, and execution &mdash; required careful integration and iterative testing:</p>
+          <ul>
+            <li><strong>End-to-end latency:</strong> The total pipeline latency from ball detection to arm motion command was minimized to ensure the arm arrives at the intercept point before the ball.</li>
+            <li><strong>Joint tracking validation:</strong> Commanded vs. actual joint positions were logged and compared across all axes, confirming the arm faithfully executes planned trajectories with minimal overshoot.</li>
+            <li><strong>Iterative catch testing:</strong> The system progressed from simulation-only testing, to open-loop positioning tests, to closed-loop catch attempts with live ball throws.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/joint-tracking.png" alt="Joint position tracking plots showing commanded vs actual positions across x, y, z axes over time" loading="lazy">
+              <div class="gallery__caption">Joint position tracking &mdash; commanded vs. actual positions across x, y, z axes</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/stereo-calibration.png" alt="Stereo camera calibration showing dot pattern board detection in left and right camera views" loading="lazy">
+              <div class="gallery__caption">Stereo camera calibration &mdash; dot pattern detection for depth estimation</div>
+            </div>
+          </div>
 
         </div>
 
@@ -78,10 +160,18 @@
           <div class="sidebar-card">
             <h3 class="sidebar-card__title">Technologies</h3>
             <div class="sidebar-card__tags">
-              <span class="tag">Capstone</span>
-              <span class="tag">Systems Engineering</span>
-              <span class="tag">Design Review</span>
-              <span class="tag">Technical Writing</span>
+              <span class="tag">ROS 2</span>
+              <span class="tag">MoveIt</span>
+              <span class="tag">Gazebo</span>
+              <span class="tag">ABB Robotics</span>
+              <span class="tag">LiDAR</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Stereo Cameras</span>
+              <span class="tag">Python</span>
+              <span class="tag">Motion Planning</span>
+              <span class="tag">Foxglove</span>
+              <span class="tag">State Estimation</span>
+              <span class="tag">SketchUp</span>
             </div>
           </div>
           <div class="sidebar-card">

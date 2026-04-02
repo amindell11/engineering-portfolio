@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OSV Autonomous Vehicle | Arye Mindell</title>
-  <meta name="description" content="ENES100 Urban Turtle Over-Sand Vehicle: sensor rigs, drivetrain systems, and autonomous navigation for a robotics prototyping course.">
+  <meta name="description" content="ENES100 Urban Turtle Over-Sand Vehicle: chain-driven 4WD chassis, UHMW structure, Arduino autonomous navigation, and sensor integration for a robotics prototyping course.">
   <meta property="og:title" content="OSV Autonomous Vehicle | Arye Mindell">
   <meta property="og:description" content="Over-Sand Vehicle with autonomous navigation, sensor integration, and drivetrain systems.">
   <meta property="og:type" content="article">
@@ -45,6 +45,10 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
           University of Maryland
         </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
+          SolidWorks &amp; Arduino
+        </div>
       </div>
     </div>
   </section>
@@ -54,20 +58,124 @@
       <div class="project-content__grid">
         <div class="project-content__main">
 
+          <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>The <strong>"Urban Turtle"</strong> was an autonomous Over-Sand Vehicle (OSV) built for the University of Maryland's ENES100 course. The project challenged teams to engineer a vehicle capable of navigating a sandy terrain course autonomously, performing specific tasks at designated waypoints.</p>
+          <p>The <strong>"Urban Turtle"</strong> was an autonomous Over-Sand Vehicle (OSV) built for the University of Maryland's ENES100 course. Teams were challenged to engineer a vehicle capable of navigating a sandy terrain course autonomously &mdash; traversing obstacles, identifying ArUco markers, and reaching designated waypoints without human intervention. The project spanned the full engineering cycle: conceptual design, CAD modeling in SolidWorks, prototyping, and iterative testing on a physical sand course.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-5.jpg" alt="Final CAD render of the Urban Turtle OSV showing UHMW chassis, off-road tires, Arduino, and sensor mounts" loading="lazy">
+              <div class="gallery__caption">Final CAD render of the Urban Turtle with all subsystems integrated</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-8.jpg" alt="Urban Turtle OSV navigating the sand course during competition, with ArUco marker visible" loading="lazy">
+              <div class="gallery__caption">The Urban Turtle navigating the ENES100 sand course during a competition run</div>
+            </div>
+          </div>
 
-          <h2>Engineering Challenges</h2>
+          <!-- ==================== CHASSIS STRUCTURE ==================== -->
+          <h2>Chassis Structure</h2>
+          <p>The chassis was built around a thick <strong>UHMW (ultra-high-molecular-weight polyethylene) base-plate</strong> chosen for its combination of strength, light weight, and machinability. The structure was designed for easy maintenance and modularity:</p>
           <ul>
-            <li><strong>Sensor Integration:</strong> Designed and built sensor rigs combining multiple sensing modalities for terrain awareness and navigation.</li>
-            <li><strong>Drivetrain Systems:</strong> Engineered drivetrain components capable of reliable locomotion over loose, uneven sand surfaces.</li>
-            <li><strong>Autonomous Navigation:</strong> Implemented control algorithms enabling the vehicle to navigate between waypoints without human intervention.</li>
-            <li><strong>Structural Design:</strong> Addressed challenges in making a robust yet lightweight chassis suitable for the competition environment.</li>
-            <li><strong>System Integration:</strong> Coordinated mechanical, electrical, and software subsystems into a cohesive, functioning vehicle.</li>
+            <li><strong>Mounting slots</strong> for chain tensioning, allowing drivetrain adjustments without disassembly.</li>
+            <li><strong>Access hole</strong> for battery replacement from below without removing the electronics deck.</li>
+            <li><strong>Threaded inserts</strong> embedded in the base-plate to mount 3D-printed sensor brackets and electronics enclosures.</li>
+            <li><strong>Protective cover</strong> for the electronics, shielding the Arduino and wiring from sand and debris.</li>
+            <li><strong>Two-tier standoff architecture</strong> separating the battery compartment (lower) from the controller deck (upper), with cross-section profiles optimized for a low center of gravity.</li>
           </ul>
+          <p>Overall footprint was approximately 270 &times; 280 mm with a height of 121 mm (excluding tires), kept compact to satisfy the course size constraints.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-3.jpg" alt="CAD render showing the UHMW chassis structure with transparent wheels revealing battery and motor mounts" loading="lazy">
+              <div class="gallery__caption">Chassis structure with transparent wheels &mdash; battery compartment and motor mounts visible</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/osv/brief-p4-0.jpg" alt="Exploded CAD view of chassis showing UHMW base-plate, standoffs, and mounting features" loading="lazy">
+              <div class="gallery__caption">Exploded view highlighting UHMW base-plate, chain-tensioning slots, and threaded inserts</div>
+            </div>
+          </div>
 
-          <h2>Documentation</h2>
-          <p>The project poster and design brief below detail the team's approach to the design challenge, including the mechanical architecture, sensor configuration, control strategy, and competition results.</p>
+          <!-- ==================== PROPULSION SYSTEM ==================== -->
+          <h2>Propulsion System</h2>
+          <p>The Urban Turtle used a <strong>chain-driven four-wheel-drive</strong> system powered by DC gear motors. Each motor drove a sprocket via roller chain, transferring torque to large off-road tires selected for maximum traction on loose sand. Key specifications:</p>
+          <ul>
+            <li><strong>Motors:</strong> DC gear motors with a no-load speed of ~265 RPM and a stall torque of ~25 oz-in, providing sufficient low-end torque for sand traversal.</li>
+            <li><strong>Chain drive:</strong> Roller chain and sprocket transmission chosen over direct drive for its mechanical advantage and ability to absorb shock loads from terrain irregularities.</li>
+            <li><strong>Tires:</strong> Oversized rubber tires with aggressive tread pattern, maximizing ground contact area and preventing the vehicle from sinking into soft sand.</li>
+            <li><strong>Skid-steer turning:</strong> Differential speed between left and right motor pairs enabled zero-radius turns for navigating tight spaces around obstacles.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-1.jpg" alt="Transparent CAD view showing internal chain drive, sprockets, motors, and ultrasonic sensor" loading="lazy">
+              <div class="gallery__caption">Transparent view revealing internal chain-drive layout, sprockets, and sensor wiring</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-2.jpg" alt="Exploded view of wheel-sprocket-motor drivetrain assembly" loading="lazy">
+              <div class="gallery__caption">Exploded drivetrain assembly: tire, sprocket, chain tensioner, motor mount, and DC motor</div>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/osv/brief-p6-0.jpg" alt="Engineering drawing of exploded wheel and drivetrain assembly with bolts and sprocket" loading="lazy">
+              <div class="gallery__caption">Detailed exploded drawing of the wheel&ndash;sprocket&ndash;motor assembly</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-12.png" alt="Motor torque curve showing linear relationship from 265 RPM at 0 torque to 0 RPM at 25 oz-in" loading="lazy">
+              <div class="gallery__caption">Motor torque curve &mdash; 265 RPM no-load, 25 oz-in stall torque</div>
+            </div>
+          </div>
+
+          <!-- ==================== AUTONOMOUS NAVIGATION ==================== -->
+          <h2>Autonomous Navigation</h2>
+          <p>The vehicle navigated the sand course autonomously using an <strong>Arduino microcontroller</strong> coordinating multiple sensor inputs and a WiFi communication module. The navigation strategy involved:</p>
+          <ul>
+            <li><strong>ArUco marker localization:</strong> An overhead vision system tracked the vehicle's position on the course via an ArUco marker mounted on a vertical mast, providing real-time x/y coordinates and heading angle to the Arduino over WiFi.</li>
+            <li><strong>Ultrasonic obstacle detection:</strong> Forward-facing ultrasonic sensors detected rocks and terrain features, triggering avoidance maneuvers when obstacles fell within a threshold distance.</li>
+            <li><strong>Waypoint sequencing:</strong> The control algorithm drove the vehicle through a series of GPS-like waypoints, computing heading error at each step and issuing proportional steering corrections via differential motor speeds.</li>
+            <li><strong>WiFi communication:</strong> A WiFi module maintained a live link to the course's vision system, receiving position updates and transmitting telemetry for real-time debugging.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-11.png" alt="Course map illustration showing the OSV navigating between rocks on a topographic sand terrain" loading="lazy">
+              <div class="gallery__caption">Course map &mdash; the vehicle must navigate between obstacles on the sand terrain</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/osv/poster-p1-4.png" alt="Exploded CAD view of 3D-printed sensor mount assembly" loading="lazy">
+              <div class="gallery__caption">3D-printed sensor mount assembly &mdash; modular bracket for ultrasonic and WiFi modules</div>
+            </div>
+          </div>
+
+          <!-- ==================== DESIGN ITERATION ==================== -->
+          <h2>Design Iteration</h2>
+          <p>The Urban Turtle went through multiple design iterations, progressing from a proof-of-concept prototype to the final competition vehicle:</p>
+          <ul>
+            <li><strong>Prototype v0 (metal chassis):</strong> An early build using a perforated metal base-plate with small plastic wheels. This version validated the basic electronics and motor control but lacked the traction and ground clearance needed for sand.</li>
+            <li><strong>Prototype v1 (wooden chassis):</strong> Upgraded to a laser-cut wooden base-plate with significantly larger off-road tires. This iteration improved sand performance dramatically but revealed chain alignment and tensioning issues.</li>
+            <li><strong>Final design (UHMW chassis):</strong> The competition vehicle incorporated all lessons learned &mdash; UHMW base-plate for durability, adjustable chain tensioning slots, 3D-printed sensor mounts, and a protective electronics enclosure.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/osv/brief-p1-0.jpg" alt="Early prototype of the Urban Turtle with metal perforated chassis and small plastic wheels" loading="lazy">
+              <div class="gallery__caption">Prototype v0 &mdash; metal perforated chassis with small wheels and basic Arduino wiring</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/osv/brief-p1-1.jpg" alt="Upgraded prototype with laser-cut wooden chassis and large off-road tires" loading="lazy">
+              <div class="gallery__caption">Prototype v1 &mdash; wooden chassis with oversized off-road tires for improved traction</div>
+            </div>
+          </div>
+
+          <!-- ==================== DIMENSIONED DESIGN ==================== -->
+          <h2>Mechanical Drawings</h2>
+          <p>SolidWorks was used for all CAD modeling, producing dimensioned drawings for manufacturing and assembly verification. The compact footprint was constrained by the ENES100 course size rules while maximizing interior volume for batteries and electronics.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/osv/brief-p2-0.jpg" alt="CAD top view and isometric view of the OSV chassis showing wheel placement and base-plate layout" loading="lazy">
+              <div class="gallery__caption">Top and isometric CAD views of the chassis layout</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/osv/brief-p2-1.jpg" alt="Dimensioned engineering drawings showing 270mm length, 121mm height, and 281mm width at 1:4 scale" loading="lazy">
+              <div class="gallery__caption">Dimensioned drawings &mdash; 270 &times; 281 &times; 121 mm at 1:4 scale</div>
+            </div>
+          </div>
 
         </div>
 
@@ -76,10 +184,15 @@
             <h3 class="sidebar-card__title">Technologies</h3>
             <div class="sidebar-card__tags">
               <span class="tag">Autonomous Navigation</span>
-              <span class="tag">Sensor Integration</span>
               <span class="tag">Arduino</span>
+              <span class="tag">SolidWorks</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Chain Drive</span>
+              <span class="tag">Ultrasonic Sensors</span>
+              <span class="tag">WiFi Communication</span>
               <span class="tag">Mechanical Design</span>
               <span class="tag">Prototyping</span>
+              <span class="tag">UHMW Machining</span>
             </div>
           </div>
           <div class="sidebar-card">
