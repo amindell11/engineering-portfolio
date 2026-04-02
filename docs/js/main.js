@@ -65,10 +65,12 @@
   var lightboxImg = lightbox.querySelector('img');
 
   document.addEventListener('click', function (e) {
-    var img = e.target.closest('.gallery__item img');
-    if (img) {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
+    var target = e.target;
+    if (target.tagName === 'IMG' && target.closest('.gallery__item')) {
+      e.preventDefault();
+      e.stopPropagation();
+      lightboxImg.src = target.src;
+      lightboxImg.alt = target.alt;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
