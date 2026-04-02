@@ -83,41 +83,61 @@
             <li><strong>Integrated Gradients:</strong> Attribution method quantifying per-feature contribution to the model output.</li>
           </ul>
           <p>The original paper can be found on <a href="https://arxiv.org/pdf/2503.14150" target="_blank" rel="noopener noreferrer">arXiv</a>.</p>
+
+          <!-- ==================== DATA COLLECTION ==================== -->
+          <h2>Data Collection &amp; Fire Mapping</h2>
+          <p>Geospatial data was collected using <strong>ArcGIS</strong>, <strong>Google Earth Engine API</strong>, and <strong>NASA VIIRS</strong> satellite fire detection products. Fire perimeters were mapped and overlaid on satellite imagery to build the training dataset.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/wildfire/poster-data-examples.png" alt="ArcGIS mapping of Palisades and Eaton fires with VIIRS satellite fire detection overlays" loading="lazy">
-              <div class="gallery__caption">ArcGIS mapping and VIIRS satellite fire masks for the Palisades and Eaton fires</div>
+              <img src="../assets/images/wildfire/fire-mapping-arcgis.png" alt="ArcGIS map of the Los Angeles area showing Palisades and Eaton fire perimeters overlaid on terrain" loading="lazy">
+              <div class="gallery__caption">ArcGIS mapping of Palisades and Eaton fire perimeters over the Los Angeles basin</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/wildfire/poster-model-architecture.png" alt="Deep learning model architectures: Autoencoder, UNet, and Swin-UNet transformer diagrams" loading="lazy">
-              <div class="gallery__caption">Model architectures evaluated &mdash; Autoencoder, UNet, and Transformer-based Swin-UNet</div>
+              <img src="../assets/images/wildfire/viirs-palisades-overlay.png" alt="VIIRS satellite fire detection data overlaid on satellite imagery of the Palisades fire showing daily spread progression" loading="lazy">
+              <div class="gallery__caption">VIIRS fire detection overlay on the Palisades fire &mdash; color-coded daily spread progression</div>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/viirs-eaton-overlay.png" alt="VIIRS satellite fire detection data overlaid on satellite imagery of the Eaton fire" loading="lazy">
+              <div class="gallery__caption">VIIRS fire detection overlay on the Eaton fire</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/viirs-thomas-overlay.png" alt="VIIRS satellite fire detection data overlaid on satellite imagery of a historical California wildfire" loading="lazy">
+              <div class="gallery__caption">VIIRS fire detection overlay on a historical California wildfire event</div>
             </div>
           </div>
 
-          <!-- ==================== VISUALIZATIONS ==================== -->
+          <!-- ==================== MODEL ARCHITECTURES ==================== -->
+          <h2>Model Architectures</h2>
+          <p>Multiple deep learning architectures were implemented and compared for the fire spread segmentation task. The <strong>Swin-UNet</strong> adapts a Swin Transformer encoder-decoder with shifted window attention for efficient spatial modeling, while the <strong>UNet</strong> provides a convolutional baseline with skip connections.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/swin-unet-architecture.png" alt="Swin-UNet architecture diagram showing transformer encoder with shifted window multi-head self-attention blocks and decoder" loading="lazy">
+              <div class="gallery__caption">Swin-UNet &mdash; transformer encoder-decoder with shifted window self-attention blocks</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/unet-architecture.png" alt="UNet architecture diagram showing convolutional encoder-decoder with skip connections and residual blocks" loading="lazy">
+              <div class="gallery__caption">UNet baseline &mdash; convolutional encoder-decoder with skip connections</div>
+            </div>
+          </div>
+
+          <!-- ==================== PREDICTIONS ==================== -->
           <h2>Predictions &amp; Explainability</h2>
           <p>The trained models produce next-day fire spread masks from the 12-channel geospatial input. Each row below shows one day's prediction: the 12 input feature channels (elevation, wind, temperature, humidity, vegetation, etc.), the ground truth fire mask, and the model's predicted spread. <strong>GradCAM</strong> and <strong>Integrated Gradients</strong> heatmaps were used to identify which spatial regions and features most influenced each prediction.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/wildfire/poster-xai-visualizations.png" alt="Multi-day visualization grid showing 12 geospatial input channels, ground truth, and predicted fire masks for Palisades and Eaton fires" loading="lazy">
-              <div class="gallery__caption">Multi-day predictions &mdash; 12 input channels with ground truth and predicted fire masks for Palisades (top) and Eaton (bottom) fires</div>
+              <img src="../assets/images/wildfire/ViT_Eaton_Preds.png" alt="Vision Transformer predictions on the Eaton fire showing 12 input feature channels, ground truth, and predicted fire mask across multiple days" loading="lazy">
+              <div class="gallery__caption">ViT predictions on the Eaton fire &mdash; 12 input channels with ground truth and predicted spread</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/wildfire/ViT_Eaton_Preds.png" alt="Vision Transformer predictions on the Eaton fire showing input feature channels and predicted fire mask" loading="lazy">
-              <div class="gallery__caption">ViT predictions on the Eaton fire &mdash; close-up of input channels and predicted spread</div>
+              <img src="../assets/images/wildfire/ViT_Palisades_Preds.png" alt="Vision Transformer predictions on the Palisades fire showing multi-day geospatial input and predicted fire masks" loading="lazy">
+              <div class="gallery__caption">ViT predictions on the Palisades fire &mdash; multi-day prediction sequence</div>
             </div>
           </div>
-
-          <!-- ==================== RESULTS ==================== -->
-          <h2>Results</h2>
-          <p>Models were evaluated using <strong>AUC-PR</strong> (area under the precision-recall curve) on both baseline and new testing datasets. The Swin-UNet transformer achieved comparable performance to the UNet baseline while offering attention-based interpretability.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/wildfire/poster-results-table.png" alt="AUC-PR performance comparison table showing Autoencoder, UNet, and Swin-UNet results across fire events" loading="lazy">
-              <div class="gallery__caption">AUC-PR performance comparison across model architectures and fire events</div>
-            </div>
-            <div class="gallery__item">
-              <img src="../assets/images/wildfire/ViT+AE_Eaton_Preds.png" alt="ViT+AE model predictions on the Eaton fire showing multi-day spread forecasts" loading="lazy">
+              <img src="../assets/images/wildfire/ViT+AE_Eaton_Preds.png" alt="ViT+AE model predictions on the Eaton fire showing extended multi-day spread forecasts" loading="lazy">
               <div class="gallery__caption">ViT+AE predictions on the Eaton fire &mdash; extended multi-day spread forecasting</div>
             </div>
           </div>
