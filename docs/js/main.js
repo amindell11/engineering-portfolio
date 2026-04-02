@@ -56,6 +56,38 @@
     });
   }
 
+  /* --- Lightbox for gallery images --- */
+  var lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML = '<button class="lightbox__close" aria-label="Close">&times;</button><img src="" alt="">';
+  document.body.appendChild(lightbox);
+
+  var lightboxImg = lightbox.querySelector('img');
+
+  document.addEventListener('click', function (e) {
+    var img = e.target.closest('.gallery__item img');
+    if (img) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  lightbox.addEventListener('click', function (e) {
+    if (e.target !== lightboxImg) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
   /* --- Header background on scroll --- */
   var header = document.querySelector('.header');
   if (header) {
