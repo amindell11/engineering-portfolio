@@ -320,7 +320,7 @@ button:focus-visible {
   border-radius: 1.25rem;
   overflow: hidden;
   max-width: 1200px;
-  width: 94%;
+  width: 90%;
   backdrop-filter: blur(16px);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
 }
