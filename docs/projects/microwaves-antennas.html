@@ -63,15 +63,15 @@
         <div class="project-content__main">
 
           <h2>Overview</h2>
-          <p>Designed, simulated, and analyzed five progressively complex RF structures in <strong>Ansys HFSS 2025 R2</strong> &mdash; from guided-wave transmission lines through impedance matching networks to antenna arrays. Each simulation result was validated against my own analytical calculations from transmission-line theory, waveguide theory, and array factor analysis, building strong RF design intuition.</p>
+          <p>Designed, simulated, and analyzed five progressively complex RF structures in <b>Ansys HFSS 2025 R2</b> &mdash; from guided-wave transmission lines through impedance matching networks to antenna arrays. Each simulation result was validated against my own analytical calculations from transmission-line theory, waveguide theory, and array factor analysis, building strong RF design intuition.</p>
 
           <!-- ==================== LAB 1 ==================== -->
           <h2>Lab 1 &mdash; Coaxial Cable</h2>
           <p>Achieved <strong>&lt; &minus;65 dB reflection</strong> across 1.5&ndash;4.5 GHz with a 50-&Omega; coaxial line I designed with polyethylene dielectric (&epsilon;<sub>r</sub> = 2.2). Compared four solver/port configurations to understand their trade-offs:</p>
           <ul>
-            <li><strong>Driven Modal + Wave Port:</strong> S(1,1) below &minus;65 dB across the band &mdash; negligible reflection with matched terminations.</li>
-            <li><strong>Driven Modal + Lumped Port:</strong> Identical insertion loss; subtle S(1,1) differences revealed port calibration effects.</li>
-            <li><strong>Driven Terminal solvers:</strong> Confirmed Modal and Terminal converge for TEM-mode coax, validating solver choice independence.</li>
+            <li><b>Driven Modal + Wave Port:</b> S(1,1) below &minus;65 dB across the band &mdash; negligible reflection with matched terminations.</li>
+            <li><b>Driven Modal + Lumped Port:</b> Identical insertion loss; subtle S(1,1) differences revealed port calibration effects.</li>
+            <li><b>Driven Terminal solvers:</b> Confirmed Modal and Terminal converge for TEM-mode coax, validating solver choice independence.</li>
           </ul>
           <p>Characteristic impedance matched the 50 &Omega; target. The S(2,1) slope quantified frequency-dependent copper loss.</p>
           <div class="gallery">
@@ -87,13 +87,13 @@
 
           <!-- ==================== LAB 2 ==================== -->
           <h2>Lab 2 &mdash; Rectangular Waveguide</h2>
-          <p>Simulated an <strong>X-band waveguide</strong> (2.286 &times; 1.016 cm, 8.2&ndash;12.4 GHz) and confirmed single-mode TE<sub>10</sub> propagation with <strong>&lt; &minus;35 dB return loss</strong> across the band &mdash; matching my analytical predictions for cutoff, guided wavelength, and wave impedance:</p>
+          <p>Simulated an <b>X-band waveguide</b> (2.286 &times; 1.016 cm, 8.2&ndash;12.4 GHz) and confirmed single-mode TE<sub>10</sub> propagation with <strong>&lt; &minus;35 dB return loss</strong> across the band &mdash; matching my analytical predictions for cutoff, guided wavelength, and wave impedance:</p>
           <ul>
-            <li><strong>Matched propagation:</strong> S(2,1) near 0 dB confirmed lossless transmission; S(1,1) well below &minus;35 dB.</li>
-            <li><strong>E-field verification:</strong> Visualized TE<sub>10</sub> field profile &mdash; maximum at a/2, zero at walls &mdash; exactly matching theory.</li>
-            <li><strong>Mismatch demonstration:</strong> Renormalizing Port 1 to 50 &Omega; produced the expected high reflection, illustrating impedance mismatch effects.</li>
-            <li><strong>Higher-order mode cutoff:</strong> Verified TE<sub>20</sub> is below cutoff across the entire X-band, confirming single-mode operation.</li>
-            <li><strong>Attenuator design:</strong> Halving the broad dimension pushed TE<sub>10</sub> cutoff above the operating band, producing strong attenuation.</li>
+            <li><b>Matched propagation:</b> S(2,1) near 0 dB confirmed lossless transmission; S(1,1) well below &minus;35 dB.</li>
+            <li><b>E-field verification:</b> Visualized TE<sub>10</sub> field profile &mdash; maximum at a/2, zero at walls &mdash; exactly matching theory.</li>
+            <li><b>Mismatch demonstration:</b> Renormalizing Port 1 to 50 &Omega; produced the expected high reflection, illustrating impedance mismatch effects.</li>
+            <li><b>Higher-order mode cutoff:</b> Verified TE<sub>20</sub> is below cutoff across the entire X-band, confirming single-mode operation.</li>
+            <li><b>Attenuator design:</b> Halving the broad dimension pushed TE<sub>10</sub> cutoff above the operating band, producing strong attenuation.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -108,11 +108,11 @@
 
           <!-- ==================== LAB 3 ==================== -->
           <h2>Lab 3 &mdash; Microstrip Stub Tuning</h2>
-          <p>Eliminated a 200-&Omega;-to-50-&Omega; mismatch (4.4 dB return loss) by designing <strong>single and double-stub matching networks</strong> on FR4 microstrip (&epsilon;<sub>r</sub> = 4.4, 3.1 mm trace width) at 3 GHz. Both networks achieved deep return-loss nulls at the design frequency:</p>
+          <p>Eliminated a 200-&Omega;-to-50-&Omega; mismatch (4.4 dB return loss) by designing <b>single and double-stub matching networks</b> on FR4 microstrip (&epsilon;<sub>r</sub> = 4.4, 3.1 mm trace width) at 3 GHz. Both networks achieved deep return-loss nulls at the design frequency:</p>
           <ul>
-            <li><strong>Single-stub match:</strong> Placed a shunt open stub at the Smith-chart-derived location &mdash; produced a deep S(1,1) null at 3 GHz with periodic harmonic nulls confirming distributed behavior.</li>
-            <li><strong>Double-stub match:</strong> Achieved broader bandwidth and deeper return loss than the single stub, at the cost of a more complex layout.</li>
-            <li><strong>Analytical validation:</strong> Derived stub lengths and positions using Smith chart graphical methods, then cross-checked against closed-form MATLAB solutions before simulating in HFSS.</li>
+            <li><b>Single-stub match:</b> Placed a shunt open stub at the Smith-chart-derived location &mdash; produced a deep S(1,1) null at 3 GHz with periodic harmonic nulls confirming distributed behavior.</li>
+            <li><b>Double-stub match:</b> Achieved broader bandwidth and deeper return loss than the single stub, at the cost of a more complex layout.</li>
+            <li><b>Analytical validation:</b> Derived stub lengths and positions using Smith chart graphical methods, then cross-checked against closed-form MATLAB solutions before simulating in HFSS.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -127,13 +127,12 @@
 
           <!-- ==================== LAB 4 ==================== -->
           <h2>Lab 4 &mdash; Quarter-Wave Monopole Antenna</h2>
-          <p>Designed and analyzed a <strong>linear quarter-wave monopole antenna</strong> operating at 2.2 GHz. The system was studied in two configurations: over an infinite ground plane and over a finite ground plane (&lambda;/2 radius), with a coaxial quarter-wave transformer for impedance matching.</p>
+          <p>Designed a <b>quarter-wave monopole at 2.2 GHz</b> and improved its return loss from &minus;16.7 dB to better than <strong>&minus;20 dB</strong> by adding a coaxial quarter-wave transformer &mdash; achieving 5.06 dB directivity (near the 5.17 dB theoretical limit):</p>
           <ul>
-            <li><strong>Infinite ground plane:</strong> The initial quarter-wave monopole had an input impedance of 60.32 + j27.72 &Omega; (higher than the theoretical 36.5 + j21.5 &Omega; due to realistic copper conductors). The antenna was shortened to 30.5 cm to achieve resonance, reducing the reactive component to near zero.</li>
-            <li><strong>Return loss:</strong> At resonance, the simulated return loss was &minus;16.719 dB, closely matching hand calculations and confirming acceptable matching to the 50-&Omega; feed.</li>
-            <li><strong>Radiation pattern:</strong> The 3-D directivity plot showed a maximum of 5.06 dB at &theta; = 90&deg; (broadside), matching the expected hemisphere pattern for a monopole over a ground plane. The slightly reduced directivity compared to the ideal 5.17 dB is attributed to the shortened antenna length.</li>
-            <li><strong>Finite ground plane effects:</strong> Replacing the infinite ground with a finite copper disc caused back-radiation and pattern distortion, reducing front-to-back ratio and shifting the impedance.</li>
-            <li><strong>Quarter-wave transformer:</strong> A coaxial transformer section was designed to match the antenna impedance to 50 &Omega;, improving the return loss to better than &minus;20 dB at the design frequency.</li>
+            <li><b>Resonance tuning:</b> Shortened the monopole to 30.5 cm to drive the reactive component to near zero, achieving &minus;16.7 dB return loss that matched my hand calculations.</li>
+            <li><strong>5.06 dB directivity:</strong> 3-D pattern confirmed the expected hemisphere radiation at &theta; = 90&deg;, within 0.11 dB of the theoretical maximum.</li>
+            <li><b>Finite ground plane:</b> Replacing the infinite ground with a &lambda;/2 copper disc revealed back-radiation and pattern distortion &mdash; quantifying real-world ground plane effects.</li>
+            <li><b>Quarter-wave transformer:</b> Designed a coaxial matching section that pushed return loss past &minus;20 dB at the design frequency.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -148,14 +147,14 @@
 
           <!-- ==================== LAB 5 ==================== -->
           <h2>Lab 5 &mdash; Linear Antenna Arrays</h2>
-          <p>Designed and compared three types of <strong>10-element linear antenna arrays</strong> at 1 GHz with &lambda;/4 element spacing, starting from a resonant half-wave dipole reference element:</p>
+          <p>Designed three <b>10-element linear arrays at 1 GHz</b> (&lambda;/4 spacing), achieving up to <strong>16.06 dB directivity</strong> and &minus;35 dB sidelobe suppression. Compared each architecture against my analytical array-factor predictions:</p>
           <ul>
-            <li><strong>Reference dipole:</strong> A single resonant half-wave dipole was tuned to 66 mm length, yielding an input impedance of 71.36 &minus; j0.07 &Omega; at 1 GHz (near-ideal resonance with minimal reactance). This served as the array element.</li>
-            <li><strong>Ordinary end-fire array:</strong> Uniform amplitude excitation with progressive phase shift to steer the main beam along the positive z-axis. Theoretical directivity and half-power beamwidth (HPBW) were computed from array factor theory.</li>
-            <li><strong>Hansen&ndash;Woodyard end-fire array:</strong> Modified phasing following the Hansen&ndash;Woodyard condition to increase end-fire directivity beyond the ordinary case, at the cost of slightly elevated sidelobes.</li>
-            <li><strong>Dolph&ndash;Chebyshev broadside array:</strong> Non-uniform amplitude excitation designed for a specified sidelobe level of &minus;35 dB. The Chebyshev amplitude taper provides the narrowest possible main beam for the given sidelobe constraint.</li>
+            <li><b>Reference dipole:</b> Tuned a half-wave dipole to 66 mm for near-ideal resonance (71.36 &minus; j0.07 &Omega;) &mdash; this element fed all three arrays.</li>
+            <li><b>Ordinary end-fire:</b> Uniform excitation with progressive phase shift steered the main beam along the z-axis; directivity and HPBW matched array-factor theory.</li>
+            <li><b>Hansen-Woodyard end-fire:</b> Modified phasing boosted end-fire directivity beyond the ordinary case at the cost of slightly elevated sidelobes.</li>
+            <li><b>Dolph-Chebyshev broadside:</b> Non-uniform amplitude taper achieved the narrowest possible main beam for a &minus;35 dB sidelobe constraint.</li>
           </ul>
-          <p>Each array configuration was exported as a custom HFSS array definition file and simulated to compare directivity, HPBW, and sidelobe level (SLL) against analytical predictions.</p>
+          <p>Exported each configuration as a custom HFSS array definition and compared simulated directivity, HPBW, and SLL against analytical predictions.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/microwaves/lab5-img5.png" alt="Ansys HFSS 10-element linear dipole array with custom array definition dialog showing element amplitudes and phases" loading="lazy">
@@ -169,7 +168,7 @@
 
           <!-- ==================== FINAL EXAM ==================== -->
           <h2>Final &mdash; Microstrip Patch Antenna</h2>
-          <p>The final HFSS project involved designing and analyzing a <strong>rectangular microstrip patch antenna</strong> operating at 2.4 GHz. The antenna was modeled with a coaxial probe feed on a grounded dielectric substrate, with a radiation boundary enclosing the structure.</p>
+          <p>Designed a <b>rectangular microstrip patch antenna</b> at 2.4 GHz as the course capstone. Modeled a coaxial probe feed on a grounded dielectric substrate with a radiation boundary, achieving <strong>4.43 dB broadside directivity</strong> and resonance at 2.36 GHz.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/microwaves/final-img1.png" alt="HFSS 3D model of rectangular microstrip patch antenna with radiation boundary" loading="lazy">

@@ -64,7 +64,7 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>I built an <strong>autonomous ball-catching robotic arm</strong> that detects a thrown ball, predicts its trajectory, and moves to intercept &mdash; all within a sub-second window of flight. I designed and integrated the full sensing-to-actuation pipeline: an xArm5 robot arm, a Time-of-Flight depth camera for 3D workspace mapping, a FLIR machine-vision tracking camera, and a ROS 2 / MoveIt control stack that plans collision-free motions in real time.</p>
+          <p>I built an <b>autonomous ball-catching robotic arm</b> that detects a thrown ball, predicts its trajectory, and moves to intercept &mdash; all within a sub-second window of flight. I designed and integrated the full sensing-to-actuation pipeline: an xArm5 robot arm, a Time-of-Flight depth camera for 3D workspace mapping, a FLIR machine-vision tracking camera, and a ROS 2 / MoveIt control stack that plans collision-free motions in real time.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/capstone/arm-lab-setup.jpg" alt="xArm5 robotic arm in the lab with overhead ToF sensor and workspace setup" loading="lazy">
@@ -80,9 +80,9 @@
           <h2>Perception &amp; Ball Detection</h2>
           <p>I developed a multi-sensor perception pipeline that delivers reliable 3D ball tracking at camera frame rate:</p>
           <ul>
-            <li><strong>Time-of-Flight depth camera:</strong> Mounted overhead to generate a dense point cloud of the workspace. I used this for environment mapping, obstacle detection, and sensor-to-robot extrinsic calibration.</li>
-            <li><strong>Tracking camera:</strong> Implemented color-based segmentation on a Kowa 3.5 mm wide-angle lens paired with a FLIR machine-vision camera, producing real-time 3D ball position estimates each frame.</li>
-            <li><strong>Ball state estimation:</strong> Designed a ballistic state estimator that fits a physics-based projectile model to just a few frames of detected positions, predicting the full trajectory within milliseconds of release.</li>
+            <li><b>Time-of-Flight depth camera:</b> Mounted overhead to generate a dense point cloud of the workspace. I used this for environment mapping, obstacle detection, and sensor-to-robot extrinsic calibration.</li>
+            <li><b>Tracking camera:</b> Implemented color-based segmentation on a Kowa 3.5 mm wide-angle lens paired with a FLIR machine-vision camera, producing real-time 3D ball position estimates each frame.</li>
+            <li><b>Ball state estimation:</b> Designed a ballistic state estimator that fits a physics-based projectile model to just a few frames of detected positions, predicting the full trajectory within milliseconds of release.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -97,7 +97,7 @@
 
           <!-- ==================== TRAJECTORY & WORKSPACE ==================== -->
           <h2>Trajectory Prediction &amp; Workspace</h2>
-          <p>I computed the xArm5's <strong>reachable workspace envelope</strong> from its kinematic model and used it as a real-time gate: the system only commits to a catch when the predicted trajectory intersects the catchable zone. This eliminated wasted motion on unreachable throws and let the controller focus planning time on viable intercepts.</p>
+          <p>I computed the xArm5's <b>reachable workspace envelope</b> from its kinematic model and used it as a real-time gate: the system only commits to a catch when the predicted trajectory intersects the catchable zone. This eliminated wasted motion on unreachable throws and let the controller focus planning time on viable intercepts.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/capstone/ball-state-estimator.png" alt="3D visualization showing color-coded ball trajectory estimates from the state estimator with obstacle positions" loading="lazy">
@@ -111,7 +111,7 @@
 
           <!-- ==================== MOTION PLANNING ==================== -->
           <h2>Motion Planning &amp; Control</h2>
-          <p>I implemented a <strong>Model Predictive Controller (MPC)</strong> backed by a QP solver that generates real-time joint velocity commands. The controller optimizes a cost function subject to joint limits and obstacle constraints, producing smooth, collision-free motions fast enough to reach the intercept point before the ball arrives.</p>
+          <p>I implemented a <b>Model Predictive Controller (MPC)</b> backed by a QP solver that generates real-time joint velocity commands. The controller optimizes a cost function subject to joint limits and obstacle constraints, producing smooth, collision-free motions fast enough to reach the intercept point before the ball arrives.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/capstone/obstacle-avoidance-sim.gif" alt="Animated GIF showing simulated robot arm avoiding obstacles while moving to catch position" loading="lazy">

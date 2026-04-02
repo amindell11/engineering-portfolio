@@ -60,7 +60,7 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>I designed and built the <strong>"Urban Turtle,"</strong> an autonomous Over-Sand Vehicle that successfully navigated a sandy obstacle course without human intervention for the University of Maryland's ENES100 competition. Over one semester, I led the mechanical design effort &mdash; taking the vehicle from concept through 3 prototype iterations to a competition-ready machine with chain-driven 4WD, ultrasonic obstacle avoidance, and ArUco-based localization. I owned the full engineering cycle: SolidWorks CAD, UHMW machining, 3D-printed sensor mounts, and Arduino control software.</p>
+          <p>I designed and built the <b>"Urban Turtle,"</b> an autonomous Over-Sand Vehicle that successfully navigated a sandy obstacle course without human intervention for the University of Maryland's ENES100 competition. Over one semester, I led the mechanical design effort &mdash; taking the vehicle from concept through 3 prototype iterations to a competition-ready machine with chain-driven 4WD, ultrasonic obstacle avoidance, and ArUco-based localization. I owned the full engineering cycle: SolidWorks CAD, UHMW machining, 3D-printed sensor mounts, and Arduino control software.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/osv/poster-p1-5.jpg" alt="Final CAD render of the Urban Turtle OSV showing UHMW chassis, off-road tires, Arduino, and sensor mounts" loading="lazy">
@@ -74,13 +74,13 @@
 
           <!-- ==================== CHASSIS STRUCTURE ==================== -->
           <h2>Chassis Structure</h2>
-          <p>I designed a modular, field-serviceable chassis around a <strong>UHMW (ultra-high-molecular-weight polyethylene) base-plate</strong> &mdash; achieving a compact 270 &times; 280 &times; 121 mm footprint that maximized interior volume while meeting strict course size constraints.</p>
+          <p>I designed a modular, field-serviceable chassis around a <b>UHMW (ultra-high-molecular-weight polyethylene) base-plate</b> &mdash; achieving a compact 270 &times; 280 &times; 121 mm footprint that maximized interior volume while meeting strict course size constraints.</p>
           <ul>
-            <li><strong>Adjustable chain-tensioning slots</strong> &mdash; eliminated full disassembly for drivetrain tuning, cutting field service time significantly.</li>
-            <li><strong>Underside battery access hole</strong> &mdash; enabled hot-swapping batteries without disturbing the electronics deck.</li>
-            <li><strong>Threaded inserts</strong> in the base-plate &mdash; provided repeatable, tool-free mounting for 3D-printed sensor brackets and enclosures.</li>
-            <li><strong>Sand-sealed electronics cover</strong> &mdash; protected the Arduino and wiring from debris ingestion during runs.</li>
-            <li><strong>Two-tier standoff architecture</strong> &mdash; separated the battery compartment (lower) from the controller deck (upper), lowering the center of gravity for stability on uneven sand.</li>
+            <li><b>Adjustable chain-tensioning slots</b> &mdash; eliminated full disassembly for drivetrain tuning, cutting field service time significantly.</li>
+            <li><b>Underside battery access hole</b> &mdash; enabled hot-swapping batteries without disturbing the electronics deck.</li>
+            <li><b>Threaded inserts</b> in the base-plate &mdash; provided repeatable, tool-free mounting for 3D-printed sensor brackets and enclosures.</li>
+            <li><b>Sand-sealed electronics cover</b> &mdash; protected the Arduino and wiring from debris ingestion during runs.</li>
+            <li><b>Two-tier standoff architecture</b> &mdash; separated the battery compartment (lower) from the controller deck (upper), lowering the center of gravity for stability on uneven sand.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -95,12 +95,12 @@
 
           <!-- ==================== PROPULSION SYSTEM ==================== -->
           <h2>Propulsion System</h2>
-          <p>I engineered a <strong>chain-driven four-wheel-drive</strong> drivetrain that delivered reliable traction across loose sand and enabled zero-radius skid-steer turns for tight obstacle avoidance.</p>
+          <p>I engineered a <b>chain-driven four-wheel-drive</b> drivetrain that delivered reliable traction across loose sand and enabled zero-radius skid-steer turns for tight obstacle avoidance.</p>
           <ul>
-            <li><strong>DC gear motors (265 RPM, 25 oz-in stall)</strong> &mdash; selected for high low-end torque critical to sand traversal.</li>
-            <li><strong>Roller chain &amp; sprocket transmission</strong> &mdash; chosen over direct drive for mechanical advantage and shock absorption over terrain irregularities.</li>
-            <li><strong>Oversized aggressive-tread tires</strong> &mdash; maximized ground contact area to prevent the vehicle from sinking into soft sand.</li>
-            <li><strong>Skid-steer architecture</strong> &mdash; differential speed between left/right motor pairs enabled zero-radius turns in confined spaces.</li>
+            <li><b>DC gear motors (265 RPM, 25 oz-in stall)</b> &mdash; selected for high low-end torque critical to sand traversal.</li>
+            <li><b>Roller chain &amp; sprocket transmission</b> &mdash; chosen over direct drive for mechanical advantage and shock absorption over terrain irregularities.</li>
+            <li><b>Oversized aggressive-tread tires</b> &mdash; maximized ground contact area to prevent the vehicle from sinking into soft sand.</li>
+            <li><b>Skid-steer architecture</b> &mdash; differential speed between left/right motor pairs enabled zero-radius turns in confined spaces.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -125,12 +125,12 @@
 
           <!-- ==================== AUTONOMOUS NAVIGATION ==================== -->
           <h2>Autonomous Navigation</h2>
-          <p>I developed the autonomous control stack on an <strong>Arduino microcontroller</strong>, fusing vision-based localization with ultrasonic obstacle detection to navigate the full sand course without human input.</p>
+          <p>I developed the autonomous control stack on an <b>Arduino microcontroller</b>, fusing vision-based localization with ultrasonic obstacle detection to navigate the full sand course without human input.</p>
           <ul>
-            <li><strong>ArUco marker localization</strong> &mdash; achieved real-time x/y position and heading via an overhead vision system linked over WiFi, providing continuous closed-loop feedback.</li>
-            <li><strong>Ultrasonic obstacle avoidance</strong> &mdash; forward-facing sensors triggered evasive maneuvers when obstacles fell within a tuned threshold distance.</li>
-            <li><strong>Proportional waypoint sequencing</strong> &mdash; implemented a heading-error controller that computed differential motor corrections at each waypoint, keeping the vehicle on course.</li>
-            <li><strong>WiFi telemetry link</strong> &mdash; maintained a live connection for position updates and real-time debugging during test runs.</li>
+            <li><b>ArUco marker localization</b> &mdash; achieved real-time x/y position and heading via an overhead vision system linked over WiFi, providing continuous closed-loop feedback.</li>
+            <li><b>Ultrasonic obstacle avoidance</b> &mdash; forward-facing sensors triggered evasive maneuvers when obstacles fell within a tuned threshold distance.</li>
+            <li><b>Proportional waypoint sequencing</b> &mdash; implemented a heading-error controller that computed differential motor corrections at each waypoint, keeping the vehicle on course.</li>
+            <li><b>WiFi telemetry link</b> &mdash; maintained a live connection for position updates and real-time debugging during test runs.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -147,9 +147,9 @@
           <h2>Design Iteration</h2>
           <p>I iterated through 3 prototypes, each time diagnosing a specific failure mode and redesigning to eliminate it &mdash; progressing from proof-of-concept to a competition-ready vehicle.</p>
           <ul>
-            <li><strong>Prototype v0 (metal chassis):</strong> Validated electronics and motor control, but small plastic wheels lacked traction and ground clearance on sand &mdash; identified tire sizing as the critical variable.</li>
-            <li><strong>Prototype v1 (wooden chassis):</strong> Upgraded to laser-cut wood with oversized off-road tires, dramatically improving sand performance. Exposed chain alignment and tensioning issues that demanded adjustable mounting.</li>
-            <li><strong>Final design (UHMW chassis):</strong> Incorporated every lesson learned &mdash; durable UHMW base-plate, adjustable chain-tensioning slots, 3D-printed sensor mounts, and a sealed electronics enclosure. Passed all competition requirements.</li>
+            <li><b>Prototype v0 (metal chassis):</b> Validated electronics and motor control, but small plastic wheels lacked traction and ground clearance on sand &mdash; identified tire sizing as the critical variable.</li>
+            <li><b>Prototype v1 (wooden chassis):</b> Upgraded to laser-cut wood with oversized off-road tires, dramatically improving sand performance. Exposed chain alignment and tensioning issues that demanded adjustable mounting.</li>
+            <li><b>Final design (UHMW chassis):</b> Incorporated every lesson learned &mdash; durable UHMW base-plate, adjustable chain-tensioning slots, 3D-printed sensor mounts, and a sealed electronics enclosure. Passed all competition requirements.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">

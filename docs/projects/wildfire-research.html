@@ -64,29 +64,12 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>Published a <strong>first-author paper on arXiv</strong> and presented at two national conferences &mdash; all as an undergraduate researcher at the <strong>LMU Deep Learning Lab</strong>. I designed, trained, and evaluated deep learning pipelines that predict <strong>next-day wildfire spread</strong> from 12-channel geospatial data, then built explainability tools to reveal which environmental features drive each prediction.</p>
+          <p>Presented at <strong>two undergraduate research conferences</strong> (SCCUR 2025 and NCUR) as a researcher at the <strong>LMU Deep Learning Lab</strong>. I trained and evaluated deep learning models that predict <b>next-day wildfire spread</b> from 12-channel geospatial data, built the multi-source training dataset, and applied SHAP analysis to understand which environmental features drive predictions.</p>
           <p>Each model ingests 12 feature channels &mdash; elevation, wind direction, wind velocity, temperature, humidity, precipitation, drought index, vegetation density, population density, energy release component, and previous fire masks &mdash; and outputs a segmentation mask forecasting the next day's burn area.</p>
-
-          <!-- ==================== COMPLETED RESEARCH ==================== -->
-          <h2>Explainable AI for Wildfire Modeling (Completed)</h2>
-          <p>Trained and benchmarked four architectures on wildfire spread prediction, then applied <strong>three explainable AI (XAI) techniques</strong> to quantify which geospatial features matter most &mdash; resulting in a published paper. I implemented and compared:</p>
-          <ul>
-            <li><strong>Vision Transformer (ViT):</strong> Adapted patch-based self-attention to 12-channel geospatial imagery, achieving the strongest segmentation performance.</li>
-            <li><strong>Baseline Autoencoder:</strong> Built an encoder-decoder baseline to isolate the benefit of transformer attention over simple reconstruction.</li>
-            <li><strong>ResNet:</strong> Configured a deep residual network for the multi-channel segmentation task.</li>
-            <li><strong>UNet:</strong> Leveraged skip-connected encoder-decoder as the standard segmentation reference.</li>
-          </ul>
-          <p>I applied three XAI methods across all architectures to interpret prediction behavior:</p>
-          <ul>
-            <li><strong>SHAP:</strong> Computed feature-level importance via TreeSHAP (XGBoost baselines) and DeepSHAP (neural networks), identifying wind and prior fire mask as top drivers.</li>
-            <li><strong>GradCAM:</strong> Generated spatial activation heatmaps pinpointing the regions most influential in each prediction.</li>
-            <li><strong>Integrated Gradients:</strong> Quantified per-feature attribution scores to validate SHAP findings with a gradient-based method.</li>
-          </ul>
-          <p>The full paper is available on <a href="https://arxiv.org/pdf/2503.14150" target="_blank" rel="noopener noreferrer">arXiv</a>.</p>
 
           <!-- ==================== DATA COLLECTION ==================== -->
           <h2>Data Collection &amp; Fire Mapping</h2>
-          <p>Built the training dataset by combining <strong>ArcGIS</strong> terrain mapping, <strong>Google Earth Engine API</strong> feature extraction, and <strong>NASA VIIRS</strong> satellite fire detections. I mapped fire perimeters for multiple California wildfire events and overlaid daily spread progressions onto satellite imagery to generate labeled samples.</p>
+          <p>Built the training dataset by combining <b>ArcGIS</b> terrain mapping, <b>Google Earth Engine API</b> feature extraction, and <b>NASA VIIRS</b> satellite fire detections. I mapped fire perimeters for multiple California wildfire events and overlaid daily spread progressions onto satellite imagery to generate labeled samples.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/wildfire/fire-mapping-arcgis.png" alt="ArcGIS map of the Los Angeles area showing Palisades and Eaton fire perimeters overlaid on terrain" loading="lazy">
@@ -110,7 +93,7 @@
 
           <!-- ==================== MODEL ARCHITECTURES ==================== -->
           <h2>Model Architectures</h2>
-          <p>Implemented and compared two core architectures for fire spread segmentation. I adapted <strong>Swin-UNet</strong> &mdash; a Swin Transformer encoder-decoder with shifted window attention &mdash; for efficient multi-scale spatial modeling, and benchmarked it against a convolutional <strong>UNet</strong> baseline with skip connections.</p>
+          <p>Implemented and compared two core architectures for fire spread segmentation. I adapted <b>Swin-UNet</b> &mdash; a Swin Transformer encoder-decoder with shifted window attention &mdash; for efficient multi-scale spatial modeling, and benchmarked it against a convolutional <b>UNet</b> baseline with skip connections.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/wildfire/swin-unet-architecture.png" alt="Swin-UNet architecture diagram showing transformer encoder with shifted window multi-head self-attention blocks and decoder" loading="lazy">
@@ -123,8 +106,8 @@
           </div>
 
           <!-- ==================== PREDICTIONS ==================== -->
-          <h2>Predictions &amp; Explainability</h2>
-          <p>Generated next-day fire spread masks from 12-channel geospatial input and validated predictions against ground truth burn perimeters. Each row below shows one day: the 12 input features (elevation, wind, temperature, humidity, vegetation, etc.), the actual fire mask, and the model's forecast. I overlaid <strong>GradCAM</strong> and <strong>Integrated Gradients</strong> heatmaps to pinpoint the spatial regions and features driving each prediction.</p>
+          <h2>Predictions</h2>
+          <p>Trained models produce next-day fire spread masks from 12-channel geospatial input. Each row below shows one day: the 12 input features (elevation, wind, temperature, humidity, vegetation, etc.), the actual fire mask, and the model's forecast.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/wildfire/ViT_Eaton_Preds.png" alt="Vision Transformer predictions on the Eaton fire showing 12 input feature channels, ground truth, and predicted fire mask across multiple days" loading="lazy">
@@ -142,20 +125,24 @@
             </div>
           </div>
 
+          <!-- ==================== EXPLAINABILITY ==================== -->
+          <h2>Explainability (SHAP Analysis)</h2>
+          <p>Applied <b>SHAP (SHapley Additive exPlanations)</b> to the trained models to identify which geospatial features most influence spread predictions. Wind conditions and prior fire mask consistently ranked as the top drivers, aligning with domain expectations. The broader project also explored GradCAM and Integrated Gradients &mdash; the full methodology is detailed in the <a href="https://arxiv.org/pdf/2503.14150" target="_blank" rel="noopener noreferrer">reference paper on arXiv</a>.</p>
+
           <!-- ==================== ONGOING RESEARCH ==================== -->
           <h2>Swin Transformer Temporal Prediction (Ongoing)</h2>
-          <p>Currently reproducing and extending <a href="https://arxiv.org/abs/2502.12003" target="_blank" rel="noopener noreferrer">Lahrichi et al. (2025)</a>, which adapts <strong>SwinUnet</strong> &mdash; originally a medical imaging architecture &mdash; to wildfire prediction. I am training on the <strong>WildfireSpreadTS (WFTS)</strong> benchmark: 607 wildfire events across the western US (2018&ndash;2021), totaling 13,000+ daily images across 23 channels at 375m resolution.</p>
+          <p>Currently reproducing and extending <a href="https://arxiv.org/abs/2502.12003" target="_blank" rel="noopener noreferrer">Lahrichi et al. (2025)</a>, which adapts <b>SwinUnet</b> &mdash; originally a medical imaging architecture &mdash; to wildfire prediction. I am training on the <b>WildfireSpreadTS (WFTS)</b> benchmark: 607 wildfire events across the western US (2018&ndash;2021), totaling 13,000+ daily images across 23 channels at 375m resolution.</p>
           <p>Key contributions I am pursuing:</p>
           <ul>
-            <li><strong>Single-day vs. multi-day input:</strong> Benchmarking single-snapshot predictions against 5-day temporal sequences to quantify the value of temporal context.</li>
-            <li><strong>ImageNet pre-training:</strong> Measuring the performance gain from Swin-Tiny transfer learning versus training from scratch on wildfire data.</li>
-            <li><strong>12-fold cross-validation:</strong> Implementing leave-one-year-out evaluation across the full WFTS dataset for statistically robust comparisons.</li>
-            <li><strong>Average Precision (AP):</strong> Evaluating against convolutional and attention-based baselines (Res18-Unet, Res50-Unet, UTAE) using the primary benchmark metric.</li>
+            <li><b>Single-day vs. multi-day input:</b> Benchmarking single-snapshot predictions against 5-day temporal sequences to quantify the value of temporal context.</li>
+            <li><b>ImageNet pre-training:</b> Measuring the performance gain from Swin-Tiny transfer learning versus training from scratch on wildfire data.</li>
+            <li><b>12-fold cross-validation:</b> Implementing leave-one-year-out evaluation across the full WFTS dataset for statistically robust comparisons.</li>
+            <li><b>Average Precision (AP):</b> Evaluating against convolutional and attention-based baselines (Res18-Unet, Res50-Unet, UTAE) using the primary benchmark metric.</li>
           </ul>
 
           <!-- ==================== PRESENTATIONS ==================== -->
           <h2>Presentations</h2>
-          <p>Presented this work at two conferences: <strong>SCCUR 2025</strong> (Southern California Conference for Undergraduate Research) and <strong>NCUR</strong> (National Conference on Undergraduate Research). I demonstrated the explainable AI methodology and live prediction results to researchers and faculty from across the country.</p>
+          <p>Presented this work at two conferences: <b>SCCUR 2025</b> (Southern California Conference for Undergraduate Research) and <b>NCUR</b> (National Conference on Undergraduate Research). I demonstrated the explainable AI methodology and live prediction results to researchers and faculty from across the country.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/wildfire/sccur-poster-presentation.jpg" alt="Arye Mindell and Tinbite Ermias presenting the wildfire deep learning research poster at SCCUR 2025" loading="lazy">

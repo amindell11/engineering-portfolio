@@ -64,15 +64,15 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>This two-part final project for EECE 3210 (Signals &amp; Linear Systems) explores the <strong>Discrete Fourier Transform</strong> and its practical applications. Part 1 builds a complete spectral analysis pipeline in MATLAB, comparing the CTFT, DTFT, and DFT of a rectangular pulse signal and demonstrating perfect reconstruction via the inverse FFT. Part 2 applies these concepts to <strong>real-world audio processing</strong>, implementing a convolution reverb system in Python that applies room impulse responses to dry audio signals using FFT-based convolution.</p>
+          <p>This two-part final project for EECE 3210 (Signals &amp; Linear Systems) explores the <b>Discrete Fourier Transform</b> and its practical applications. Part 1 builds a complete spectral analysis pipeline in MATLAB, comparing the CTFT, DTFT, and DFT of a rectangular pulse signal and demonstrating perfect reconstruction via the inverse FFT. Part 2 applies these concepts to <b>real-world audio processing</b>, implementing a convolution reverb system in Python that applies room impulse responses to dry audio signals using FFT-based convolution.</p>
 
           <!-- ==================== PART 1: SPECTRAL ANALYSIS ==================== -->
           <h2>Part 1: Fourier Transform Comparison</h2>
           <p>Starting from a continuous-time rectangular pulse, the project systematically derives and compares three representations of the signal's frequency content:</p>
           <ul>
-            <li><strong>CTFT (Continuous-Time Fourier Transform):</strong> Analytic sinc-shaped magnitude spectrum computed symbolically, serving as the ground truth for spectral content.</li>
-            <li><strong>DTFT (Discrete-Time Fourier Transform):</strong> Frequency response of the sampled sequence, evaluated symbolically over [&minus;&pi;, &pi;] to observe aliasing effects from sampling.</li>
-            <li><strong>N-Point DFT:</strong> Practical FFT-based computation with finite samples, compared against the CTFT and DTFT to quantify spectral leakage and resolution trade-offs.</li>
+            <li><b>CTFT (Continuous-Time Fourier Transform):</b> Analytic sinc-shaped magnitude spectrum computed symbolically, serving as the ground truth for spectral content.</li>
+            <li><b>DTFT (Discrete-Time Fourier Transform):</b> Frequency response of the sampled sequence, evaluated symbolically over [&minus;&pi;, &pi;] to observe aliasing effects from sampling.</li>
+            <li><b>N-Point DFT:</b> Practical FFT-based computation with finite samples, compared against the CTFT and DTFT to quantify spectral leakage and resolution trade-offs.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -103,9 +103,9 @@
           <h2>Parameter Studies</h2>
           <p>Additional experiments varied the sampling rate and DFT zero-padding to study their effects on spectral resolution and aliasing:</p>
           <ul>
-            <li><strong>Increased sampling rate (fs=4 Hz):</strong> Higher sampling pushes aliased replicas further apart, improving agreement between the DFT and CTFT in the baseband.</li>
-            <li><strong>Zero-padded DFT (N=8&times;tau&times;fs):</strong> Interpolating the DFT with additional zero-padded points produces a smoother spectral estimate that closely tracks the continuous sinc envelope.</li>
-            <li><strong>Extended pulse width (tau=7):</strong> Narrower mainlobe in the frequency domain, demonstrating the time-frequency duality of the Fourier transform.</li>
+            <li><b>Increased sampling rate (fs=4 Hz):</b> Higher sampling pushes aliased replicas further apart, improving agreement between the DFT and CTFT in the baseband.</li>
+            <li><b>Zero-padded DFT (N=8&times;tau&times;fs):</b> Interpolating the DFT with additional zero-padded points produces a smoother spectral estimate that closely tracks the continuous sinc envelope.</li>
+            <li><b>Extended pulse width (tau=7):</b> Narrower mainlobe in the frequency domain, demonstrating the time-frequency duality of the Fourier transform.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -120,11 +120,11 @@
 
           <!-- ==================== PART 2: CONVOLUTION REVERB ==================== -->
           <h2>Part 2: Convolution Reverb</h2>
-          <p>The second part applies Fourier analysis to <strong>audio signal processing</strong>, implementing a convolution reverb pipeline in Python. A dry audio signal is convolved with a room impulse response (IR) to simulate the acoustic characteristics of a real physical space. The convolution is performed efficiently in the frequency domain using the FFT:</p>
+          <p>The second part applies Fourier analysis to <b>audio signal processing</b>, implementing a convolution reverb pipeline in Python. A dry audio signal is convolved with a room impulse response (IR) to simulate the acoustic characteristics of a real physical space. The convolution is performed efficiently in the frequency domain using the FFT:</p>
           <ul>
-            <li><strong>Impulse response loading:</strong> Real-world room IRs captured from acoustic spaces, loaded and preprocessed with band-pass EQ (250 Hz &ndash; 4000 Hz cutoffs).</li>
-            <li><strong>FFT-based convolution:</strong> Both the dry signal and IR are transformed to the frequency domain, multiplied, and inverse-transformed to produce the wet (reverbed) output.</li>
-            <li><strong>Spectral analysis:</strong> Magnitude and phase spectra of the IR, dry signal, and wet output are plotted alongside their time-domain waveforms to visualize how convolution shapes the frequency content.</li>
+            <li><b>Impulse response loading:</b> Real-world room IRs captured from acoustic spaces, loaded and preprocessed with band-pass EQ (250 Hz &ndash; 4000 Hz cutoffs).</li>
+            <li><b>FFT-based convolution:</b> Both the dry signal and IR are transformed to the frequency domain, multiplied, and inverse-transformed to produce the wet (reverbed) output.</li>
+            <li><b>Spectral analysis:</b> Magnitude and phase spectra of the IR, dry signal, and wet output are plotted alongside their time-domain waveforms to visualize how convolution shapes the frequency content.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
