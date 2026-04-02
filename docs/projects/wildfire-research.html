@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wildfire Research | Arye Mindell</title>
+  <meta name="description" content="Deep learning research for wildfire spread prediction using Vision Transformers, Swin Transformers, and explainable AI on geospatial data.">
+  <meta property="og:title" content="Wildfire Research | Arye Mindell">
+  <meta property="og:description" content="Predicting wildfire spread with Vision Transformers and explainable AI techniques on multi-channel geospatial data.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Home">A<span>.</span>Mindell</a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="../index.html#about" class="nav__link">About</a></li>
+          <li><a href="../index.html#projects" class="nav__link">Projects</a></li>
+          <li><a href="../index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="project-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="project-hero__back">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Back to Portfolio
+      </a>
+      <h1 class="project-hero__title fade-in">Wildfire Spread Prediction</h1>
+      <p class="project-hero__subtitle fade-in">Deep Learning for Next-Day Wildfire Spread Forecasting &mdash; LMU Deep Learning Lab</p>
+      <div class="project-hero__meta fade-in">
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
+          Research
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+          2024&ndash;Present
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
+          Vision Transformers &amp; XAI
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-content">
+    <div class="container">
+      <div class="project-content__grid">
+        <div class="project-content__main">
+
+          <!-- ==================== OVERVIEW ==================== -->
+          <h2>Overview</h2>
+          <p>This research, conducted at the <strong>LMU Deep Learning Lab</strong>, applies deep learning to the problem of <strong>next-day wildfire spread prediction</strong> using multi-channel geospatial data. The work spans two phases: a completed study on explainable AI for wildfire modeling using Vision Transformers, and ongoing research reproducing and extending Swin Transformer-based temporal prediction methods.</p>
+          <p>The models take as input 12 geospatial feature channels &mdash; including elevation, wind direction, wind velocity, temperature, humidity, precipitation, drought index, vegetation density, population density, energy release component, and previous fire masks &mdash; and predict the next-day fire spread mask as a segmentation output.</p>
+
+          <!-- ==================== COMPLETED RESEARCH ==================== -->
+          <h2>Explainable AI for Wildfire Modeling (Completed)</h2>
+          <p>The first phase of research focused on training and comparing multiple deep learning architectures for wildfire spread prediction, then applying <strong>explainable AI (XAI)</strong> techniques to understand which geospatial features drive model predictions. The models trained include:</p>
+          <ul>
+            <li><strong>Vision Transformer (ViT):</strong> Patch-based transformer architecture applied to multi-channel geospatial imagery for fire mask segmentation.</li>
+            <li><strong>Baseline Autoencoder:</strong> Encoder-decoder architecture providing a baseline for comparison against transformer models.</li>
+            <li><strong>ResNet:</strong> Deep residual network adapted for the geospatial segmentation task.</li>
+            <li><strong>UNet:</strong> Encoder-decoder with skip connections, a standard architecture for image segmentation tasks.</li>
+          </ul>
+          <p>To interpret model behavior, three XAI techniques were applied across all architectures:</p>
+          <ul>
+            <li><strong>SHAP (SHapley Additive exPlanations):</strong> Computed feature-level importance scores using both TreeSHAP (for XGBoost baselines) and DeepSHAP (for neural networks).</li>
+            <li><strong>GradCAM:</strong> Generated class activation heatmaps highlighting spatial regions most influential in predictions.</li>
+            <li><strong>Integrated Gradients:</strong> Attribution method quantifying per-feature contribution to the model output.</li>
+          </ul>
+          <p>The original paper can be found on <a href="https://arxiv.org/pdf/2503.14150" target="_blank" rel="noopener noreferrer">arXiv</a>.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/ViT_Eaton_Preds.png" alt="Vision Transformer predictions on the Eaton fire showing input feature channels and predicted fire mask" loading="lazy">
+              <div class="gallery__caption">ViT predictions on the Eaton fire &mdash; 12 input feature channels with ground truth and predicted fire masks</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/ViT_Palisades_Preds.png" alt="Vision Transformer predictions on the Palisades fire across multiple days" loading="lazy">
+              <div class="gallery__caption">ViT predictions on the Palisades fire &mdash; multi-day prediction sequence</div>
+            </div>
+          </div>
+
+          <!-- ==================== VIT+AE ==================== -->
+          <h2>ViT + Autoencoder Variant</h2>
+          <p>An enhanced architecture combining a <strong>Vision Transformer with an Autoencoder (ViT+AE)</strong> was also evaluated. This variant uses the autoencoder for learned feature compression before the transformer processes the spatial relationships, enabling more efficient representation of the high-dimensional geospatial input.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/ViT+AE_Eaton_Preds.png" alt="ViT+AE model predictions on the Eaton fire showing multi-day spread forecasts" loading="lazy">
+              <div class="gallery__caption">ViT+AE predictions on the Eaton fire &mdash; extended multi-day spread forecasting</div>
+            </div>
+          </div>
+
+          <!-- ==================== ONGOING RESEARCH ==================== -->
+          <h2>Swin Transformer Temporal Prediction (Ongoing)</h2>
+          <p>The second phase of research focuses on reproducing and extending results from <a href="https://arxiv.org/abs/2502.12003" target="_blank" rel="noopener noreferrer">Lahrichi et al. (2025)</a>, which adapts the <strong>SwinUnet</strong> architecture &mdash; originally developed for medical image segmentation &mdash; to wildfire spread prediction. This work uses the <strong>WildfireSpreadTS (WFTS)</strong> benchmark dataset containing 607 wildfire events across the western United States (2018&ndash;2021), totaling over 13,000 daily multi-channel images across 23 channels at 375m resolution.</p>
+          <p>Key aspects of this ongoing work include:</p>
+          <ul>
+            <li><strong>Single-day vs. multi-day input:</strong> Comparing model performance when given a single snapshot versus a 5-day temporal sequence of geospatial conditions.</li>
+            <li><strong>ImageNet pre-training:</strong> Evaluating the benefit of transfer learning from pre-trained Swin-Tiny weights versus training from scratch on the wildfire domain.</li>
+            <li><strong>12-fold cross-validation:</strong> Leave-one-year-out evaluation strategy across the full WFTS dataset for robust performance estimation.</li>
+            <li><strong>Average Precision (AP):</strong> Primary evaluation metric for comparing against prior convolutional and attention-based baselines (Res18-Unet, Res50-Unet, UTAE).</li>
+          </ul>
+
+          <!-- ==================== NCUR ==================== -->
+          <h2>Presentations</h2>
+          <p>This research was presented at the <strong>National Conference on Undergraduate Research (NCUR)</strong>, showcasing the explainable AI methodology and wildfire prediction results to the broader academic community.</p>
+
+        </div>
+
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Technologies</h3>
+            <div class="sidebar-card__tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Vision Transformer</span>
+              <span class="tag">Swin Transformer</span>
+              <span class="tag">UNet</span>
+              <span class="tag">ResNet</span>
+              <span class="tag">SHAP</span>
+              <span class="tag">GradCAM</span>
+              <span class="tag">Integrated Gradients</span>
+              <span class="tag">Geospatial Data</span>
+              <span class="tag">Image Segmentation</span>
+              <span class="tag">XGBoost</span>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">GitHub Repositories</h3>
+            <div class="sidebar-card__links">
+              <a href="https://github.com/lmudeeplearninglab/GeoTransformer-Wildfires-2025" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GeoTransformer-Wildfires (Completed)
+              </a>
+              <a href="https://github.com/amindell11/wildfire-ts-swin" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                Wildfire-TS-Swin (Ongoing)
+              </a>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Documents</h3>
+            <div class="sidebar-card__links">
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Wildfire_Research/Wildfire_Poster_11_25.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Research Poster (PDF)
+              </a>
+              <a href="https://arxiv.org/pdf/2503.14150" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Original Paper (arXiv)
+              </a>
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Wildfire_Research/single_day_swin_resultsdf.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Single-Day Swin Results (PDF)
+              </a>
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Wildfire_Research/multi_day_swin_resultsdf.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Multi-Day Swin Results (PDF)
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">&copy; 2025 Arye Mindell. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
