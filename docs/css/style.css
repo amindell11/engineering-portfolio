@@ -393,6 +393,11 @@ button:focus-visible {
   line-height: 1.7;
 }
 
+.hero__tagline strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 .hero__cta {
   display: inline-flex;
   align-items: center;
