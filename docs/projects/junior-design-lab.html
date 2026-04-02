@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Junior Design Lab | Arye Mindell</title>
-  <meta name="description" content="EE Junior Lab coursework: multi-stage operational amplifier design and synchronous digital prime counter with JK flip-flops.">
+  <meta name="description" content="EE Junior Lab: two-stage operational amplifier design with Widlar current source and Darlington pair in LTSpice, and a synchronous prime number counter with JK flip-flops in VHDL.">
   <meta property="og:title" content="Junior Design Lab | Arye Mindell">
-  <meta property="og:description" content="Operational amplifier design and digital logic circuits from EE Junior Lab.">
+  <meta property="og:description" content="Operational amplifier design and synchronous digital prime counter from EE Junior Lab.">
   <meta property="og:type" content="article">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,11 +39,15 @@
         Back to Portfolio
       </a>
       <h1 class="project-hero__title fade-in">Junior Design Lab</h1>
-      <p class="project-hero__subtitle fade-in">Electrical Engineering &mdash; Two Semesters of Lab Coursework</p>
+      <p class="project-hero__subtitle fade-in">Electrical Engineering &mdash; Analog &amp; Digital Circuit Design</p>
       <div class="project-hero__meta fade-in">
         <div class="project-hero__meta-item">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
           Academic Coursework
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
+          LTSpice &amp; VHDL
         </div>
       </div>
     </div>
@@ -54,19 +58,70 @@
       <div class="project-content__grid">
         <div class="project-content__main">
 
+          <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>Two semesters of Electrical Engineering Junior Lab coursework covering hands-on circuit design, simulation, fabrication, and testing. These labs developed core skills in analog and digital electronics, from transistor-level amplifier design to sequential logic circuits.</p>
+          <p>Two semesters of Electrical Engineering Junior Lab covering hands-on analog and digital circuit design, simulation, breadboard fabrication, and testing. The coursework progressed from transistor-level amplifier design to sequential logic circuits, building core skills in both domains.</p>
 
+          <!-- ==================== OP-AMP DESIGN ==================== -->
           <h2>Operational Amplifier Design</h2>
-          <p>Designed and simulated a <strong>multi-stage operational amplifier</strong> meeting strict specifications for voltage gain, input impedance, output impedance, and bandwidth. The design process involved iterating through transistor biasing, small-signal analysis, and frequency response optimization using circuit simulation tools like LTSpice.</p>
-          <p>Key specifications included achieving target open-loop gain, maintaining stability across the operating frequency range, and meeting power consumption constraints.</p>
+          <p>Designed and simulated a <strong>two-stage operational amplifier</strong> from discrete transistors, meeting strict specifications for gain, impedance, bandwidth, and output swing. The amplifier architecture comprised four cascaded stages:</p>
+          <ul>
+            <li><strong>Differential amplifier input stage:</strong> A matched transistor pair (LM3046M) biased by a <strong>Widlar current source</strong> at ~200 &mu;A per side. Provided high input impedance (R<sub>id</sub> = 58.6 k&Omega;, spec &ge; 20 k&Omega;) and common-mode rejection, with 160 &Omega; emitter degeneration resistors for gain stability.</li>
+            <li><strong>Common-emitter gain stage:</strong> A Darlington-pair CE amplifier (MMBTA14LT1G) providing the bulk of the voltage gain. A bypass capacitor (100 &mu;F) on the emitter degeneration resistor set the low-frequency cutoff at ~45 Hz (spec &le; 100 Hz).</li>
+            <li><strong>Level shifter:</strong> Translated the DC operating point to center the output at 0 V offset (&lt; 10 mV measured), using a 3.3 k&Omega; emitter resistor to drop the 6.6 V difference between stages.</li>
+            <li><strong>Emitter-follower output stage:</strong> Provided low output impedance (R<sub>o</sub> &lt; 200 &Omega;) and unity voltage gain for driving a 200 &Omega; load.</li>
+          </ul>
+          <p>The simulated midband gain was <strong>467.87 V/V</strong> (spec: 400&ndash;500), with a peak-to-peak output swing of <strong>2.1 V</strong> (spec &ge; 2 V).</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/opamp-p1-0.png" alt="Circuit schematic of the two-stage operational amplifier showing differential pair, CE stage, level shifter, and emitter follower" loading="lazy">
+              <div class="gallery__caption">Op-amp circuit schematic &mdash; differential pair, Darlington CE stage, level shifter, and emitter follower</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/opamp-p4-1.png" alt="LTSpice simulation with DC operating point annotations showing bias currents and voltages at each node" loading="lazy">
+              <div class="gallery__caption">LTSpice simulation with DC operating point annotations at each stage</div>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/opamp-p4-2.png" alt="AC frequency response plot showing midband gain of 467.87 V/V with low-frequency cutoff at 45 Hz" loading="lazy">
+              <div class="gallery__caption">AC frequency response &mdash; midband gain of 467.87 V/V, low-frequency cutoff at 45 Hz</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/opamp-p4-4.png" alt="Transient analysis showing output waveform with 2.1 V peak-to-peak swing without distortion" loading="lazy">
+              <div class="gallery__caption">Transient response &mdash; 2.1 V peak-to-peak output swing without clipping</div>
+            </div>
+          </div>
 
-          <h2>Prime Number Counter Circuit</h2>
-          <p>Developed a <strong>synchronous digital counter</strong> implementing sequential logic to cycle through prime numbers. The circuit was designed using <strong>JK flip-flops</strong>, with combinational logic derived from Karnaugh maps and state transition diagrams.</p>
-          <p>This project exercised skills in state machine design, Boolean algebra simplification, and translating theoretical designs into working hardware on breadboards.</p>
-
-          <h2>Full Lab Repositories</h2>
-          <p>Complete lab materials, including all experiments, reports, data, and code implementations, are organized into semester-specific repositories for detailed reference.</p>
+          <!-- ==================== PRIME COUNTER ==================== -->
+          <h2>Prime Number Counter</h2>
+          <p>Designed and implemented a <strong>three-bit synchronous up/down prime number counter</strong> using a Moore-model sequential circuit. The counter cycles through the primes {2, 3, 5, 7} in ascending or descending order, controlled by an enable input (X<sub>0</sub>) and a direction input (X<sub>1</sub>):</p>
+          <ul>
+            <li><strong>State machine design:</strong> Four states stored in two JK flip-flops (Q<sub>1</sub>, Q<sub>0</sub>), with state transitions derived from a state diagram mapping each state to a prime number. Excitation logic was minimized using Karnaugh maps.</li>
+            <li><strong>Output combinational logic:</strong> A separate module converts the 2-bit state into a 3-bit binary representation of the corresponding prime (e.g., state 00 &rarr; 010 = 2, state 01 &rarr; 011 = 3).</li>
+            <li><strong>VHDL simulation:</strong> The design was verified in VHDL before hardware implementation, with a testbench confirming correct counting in both directions, proper enable/disable behavior, and accurate prime output encoding.</li>
+            <li><strong>Hardware implementation:</strong> Built on a breadboard using 74LS32 OR gates, 74LS04 inverters, 74LS11 3-input AND gates, and 7473 JK flip-flops, clocked by a 1 Hz square wave from a Tektronix oscilloscope function generator.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/prime-p1-1.jpeg" alt="State diagram showing four states cycling through primes 2, 3, 5, 7 with transition conditions" loading="lazy">
+              <div class="gallery__caption">State diagram &mdash; four states cycling through primes {2, 3, 5, 7} with up/down transitions</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/prime-p2-2.jpeg" alt="Karnaugh maps for J1, K1, J0, K0 flip-flop excitation logic with minimized groupings" loading="lazy">
+              <div class="gallery__caption">Karnaugh maps for JK flip-flop excitation logic &mdash; minimized to derive gate equations</div>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/prime-p3-5.jpeg" alt="Complete logic diagram showing up/down counter module with JK flip-flops and prime converter output module" loading="lazy">
+              <div class="gallery__caption">Complete logic diagram &mdash; up/down counter module with JK flip-flops and prime converter output</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/junior-lab/prime-p3-4.jpeg" alt="VHDL timing diagram showing correct prime number sequence 2-7-5-3-2-3-5-7 with enable and direction control" loading="lazy">
+              <div class="gallery__caption">VHDL timing diagram &mdash; correct prime sequence with up/down and enable control verified</div>
+            </div>
+          </div>
 
         </div>
 
@@ -74,12 +129,16 @@
           <div class="sidebar-card">
             <h3 class="sidebar-card__title">Technologies</h3>
             <div class="sidebar-card__tags">
-              <span class="tag">Op-Amp Design</span>
-              <span class="tag">Digital Logic</span>
-              <span class="tag">Circuit Simulation</span>
               <span class="tag">LTSpice</span>
+              <span class="tag">VHDL</span>
+              <span class="tag">Op-Amp Design</span>
+              <span class="tag">BJT Circuits</span>
               <span class="tag">JK Flip-Flops</span>
-              <span class="tag">Lab Reports</span>
+              <span class="tag">Karnaugh Maps</span>
+              <span class="tag">State Machines</span>
+              <span class="tag">Breadboarding</span>
+              <span class="tag">Digital Logic</span>
+              <span class="tag">Frequency Analysis</span>
             </div>
           </div>
           <div class="sidebar-card">
