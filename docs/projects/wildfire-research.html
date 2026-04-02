@@ -85,19 +85,37 @@
           <p>The original paper can be found on <a href="https://arxiv.org/pdf/2503.14150" target="_blank" rel="noopener noreferrer">arXiv</a>.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/wildfire/ViT_Eaton_Preds.png" alt="Vision Transformer predictions on the Eaton fire showing input feature channels and predicted fire mask" loading="lazy">
-              <div class="gallery__caption">ViT predictions on the Eaton fire &mdash; 12 input feature channels with ground truth and predicted fire masks</div>
+              <img src="../assets/images/wildfire/poster-data-examples.png" alt="ArcGIS mapping of Palisades and Eaton fires with VIIRS satellite fire detection overlays" loading="lazy">
+              <div class="gallery__caption">ArcGIS mapping and VIIRS satellite fire masks for the Palisades and Eaton fires</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/wildfire/ViT_Palisades_Preds.png" alt="Vision Transformer predictions on the Palisades fire across multiple days" loading="lazy">
-              <div class="gallery__caption">ViT predictions on the Palisades fire &mdash; multi-day prediction sequence</div>
+              <img src="../assets/images/wildfire/poster-model-architecture.png" alt="Deep learning model architectures: Autoencoder, UNet, and Swin-UNet transformer diagrams" loading="lazy">
+              <div class="gallery__caption">Model architectures evaluated &mdash; Autoencoder, UNet, and Transformer-based Swin-UNet</div>
             </div>
           </div>
 
-          <!-- ==================== VIT+AE ==================== -->
-          <h2>ViT + Autoencoder Variant</h2>
-          <p>An enhanced architecture combining a <strong>Vision Transformer with an Autoencoder (ViT+AE)</strong> was also evaluated. This variant uses the autoencoder for learned feature compression before the transformer processes the spatial relationships, enabling more efficient representation of the high-dimensional geospatial input.</p>
+          <!-- ==================== VISUALIZATIONS ==================== -->
+          <h2>Predictions &amp; Explainability</h2>
+          <p>The trained models produce next-day fire spread masks from the 12-channel geospatial input. Each row below shows one day's prediction: the 12 input feature channels (elevation, wind, temperature, humidity, vegetation, etc.), the ground truth fire mask, and the model's predicted spread. <strong>GradCAM</strong> and <strong>Integrated Gradients</strong> heatmaps were used to identify which spatial regions and features most influenced each prediction.</p>
           <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/poster-xai-visualizations.png" alt="Multi-day visualization grid showing 12 geospatial input channels, ground truth, and predicted fire masks for Palisades and Eaton fires" loading="lazy">
+              <div class="gallery__caption">Multi-day predictions &mdash; 12 input channels with ground truth and predicted fire masks for Palisades (top) and Eaton (bottom) fires</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/ViT_Eaton_Preds.png" alt="Vision Transformer predictions on the Eaton fire showing input feature channels and predicted fire mask" loading="lazy">
+              <div class="gallery__caption">ViT predictions on the Eaton fire &mdash; close-up of input channels and predicted spread</div>
+            </div>
+          </div>
+
+          <!-- ==================== RESULTS ==================== -->
+          <h2>Results</h2>
+          <p>Models were evaluated using <strong>AUC-PR</strong> (area under the precision-recall curve) on both baseline and new testing datasets. The Swin-UNet transformer achieved comparable performance to the UNet baseline while offering attention-based interpretability.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/wildfire/poster-results-table.png" alt="AUC-PR performance comparison table showing Autoencoder, UNet, and Swin-UNet results across fire events" loading="lazy">
+              <div class="gallery__caption">AUC-PR performance comparison across model architectures and fire events</div>
+            </div>
             <div class="gallery__item">
               <img src="../assets/images/wildfire/ViT+AE_Eaton_Preds.png" alt="ViT+AE model predictions on the Eaton fire showing multi-day spread forecasts" loading="lazy">
               <div class="gallery__caption">ViT+AE predictions on the Eaton fire &mdash; extended multi-day spread forecasting</div>
