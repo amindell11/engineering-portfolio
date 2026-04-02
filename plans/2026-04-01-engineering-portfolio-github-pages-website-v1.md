@@ -232,9 +232,9 @@ docs/
 
 ### Phase 5: Commit Untracked Files
 
-- [ ] **5.1 Commit the `Capstone/` directory.** Add and commit the two untracked PDFs (`CapstoneFInalDesignReview2025.pdf`, `CapstoneS2MidtermReport.pdf`) so they are available on GitHub.
+- [x] **5.1 Commit the `Capstone/` directory.** Add and commit the two untracked PDFs (`CapstoneFInalDesignReview2025.pdf`, `CapstoneS2MidtermReport.pdf`) so they are available on GitHub.
 
-- [ ] **5.2 Commit the `Microwaves_and_Antennas_Labs/` directory.** Add and commit the two untracked PDFs (`Mindell_Lab_2.pdf`, `Mindell_Lab_3.pdf`).
+- [ ] **5.2 Commit the `Microwaves_and_Antennas_Labs/` directory.** Add and commit the two untracked PDFs (`Mindell_Lab_2.pdf`, `Mindell_Lab_3.pdf`). **NOTE: Committed locally along with 5 labs total. Push required.**
 
 - [x] **5.3 Add a `.gitignore` file.** Create a root `.gitignore` to exclude OS artifacts (`.DS_Store`, `Thumbs.db`), editor configs, and any local-only files.
 

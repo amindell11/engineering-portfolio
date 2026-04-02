@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Microwaves &amp; Antennas | Arye Mindell</title>
-  <meta name="description" content="RF engineering coursework: microwave circuit analysis, antenna design, S-parameter measurements, and transmission line theory.">
+  <meta name="description" content="RF engineering coursework: coaxial cable design, rectangular waveguide analysis, microstrip stub tuning, quarter-wave monopole antennas, and linear antenna arrays — all simulated in Ansys HFSS.">
   <meta property="og:title" content="Microwaves &amp; Antennas | Arye Mindell">
-  <meta property="og:description" content="Microwave circuit analysis, antenna design, and S-parameter measurements.">
+  <meta property="og:description" content="Five HFSS-based labs covering coaxial cables, waveguides, microstrip matching, monopole antennas, and antenna arrays.">
   <meta property="og:type" content="article">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,12 +38,20 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
         Back to Portfolio
       </a>
-      <h1 class="project-hero__title fade-in">Microwaves &amp; Antennas</h1>
-      <p class="project-hero__subtitle fade-in">RF Engineering Coursework &mdash; Lab Reports</p>
+      <h1 class="project-hero__title fade-in">Microwaves &amp; Antennas Labs</h1>
+      <p class="project-hero__subtitle fade-in">Five HFSS-based laboratory experiments in RF engineering &mdash; from coaxial cables to antenna arrays</p>
       <div class="project-hero__meta fade-in">
         <div class="project-hero__meta-item">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
           Academic Coursework
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+          Fall 2025
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
+          Ansys HFSS
         </div>
       </div>
     </div>
@@ -55,19 +63,110 @@
         <div class="project-content__main">
 
           <h2>Overview</h2>
-          <p>Coursework in <strong>Microwaves and Antennas</strong> covering the theoretical foundations and practical laboratory work in RF engineering. The course covered microwave circuit theory, transmission line analysis, antenna fundamentals, and measurement techniques using vector network analyzers.</p>
+          <p>A five-lab sequence in <strong>Microwaves and Antennas</strong> progressing from guided-wave fundamentals through impedance matching to antenna design and array synthesis. All simulations were performed in <strong>Ansys HFSS 2025 R2</strong> (3-D full-wave electromagnetic solver), with results validated against analytical predictions derived from transmission line theory, waveguide theory, and antenna array factor analysis.</p>
 
-          <h2>Topics Covered</h2>
+          <!-- ==================== LAB 1 ==================== -->
+          <h2>Lab 1 &mdash; Coaxial Cable</h2>
+          <p>Designed and simulated a <strong>50-&Omega; coaxial transmission line</strong> with a polyethylene dielectric (&epsilon;<sub>r</sub> = 2.2), copper inner conductor (radius 0.375 mm), and copper outer conductor (radius 1.31 mm). The 5 cm section was analyzed using four different port/solver combinations to compare their behavior:</p>
           <ul>
-            <li><strong>Transmission Line Theory:</strong> Characteristic impedance, reflection coefficients, standing wave ratios, and Smith chart analysis.</li>
-            <li><strong>S-Parameter Measurements:</strong> Two-port network characterization using scattering parameters, including calibration procedures and measurement uncertainty analysis.</li>
-            <li><strong>Microwave Circuit Design:</strong> Impedance matching networks, power dividers, couplers, and filter design at microwave frequencies.</li>
-            <li><strong>Antenna Fundamentals:</strong> Radiation patterns, gain, directivity, polarization, and antenna array theory.</li>
-            <li><strong>Laboratory Skills:</strong> Hands-on experience with vector network analyzers, spectrum analyzers, and antenna measurement systems.</li>
+            <li><strong>Driven Modal + Wave Port</strong> &mdash; S(1,1) remained below &minus;65 dB across the 1.5&ndash;4.5 GHz sweep, confirming negligible reflection with matched terminations.</li>
+            <li><strong>Driven Modal + Lumped Port</strong> &mdash; insertion loss identical; subtle difference in S(1,1) shape due to port calibration differences.</li>
+            <li><strong>Driven Terminal + Wave Port / Lumped Port</strong> &mdash; verified that Modal and Terminal solvers converge to the same result for the TEM-mode coax.</li>
           </ul>
+          <p>The simulated characteristic impedance closely matched the designed 50 &Omega; target. The S(2,1) plot showed a negative slope indicating frequency-dependent resistive loss in the copper conductors.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab1-coax-model.jpg" alt="Ansys HFSS 3D model of a 50-ohm coaxial cable with copper conductors and polyethylene dielectric" loading="lazy">
+              <div class="gallery__caption">HFSS model of 50-&Omega; coaxial cable (5 cm length)</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab1-char-impedance.jpg" alt="S(2,1) insertion loss plot for coaxial cable showing frequency-dependent resistive loss from 1.5 to 4.5 GHz" loading="lazy">
+              <div class="gallery__caption">S(2,1) insertion loss &mdash; negative slope confirms increasing conductor loss with frequency</div>
+            </div>
+          </div>
 
-          <h2>Lab Reports</h2>
-          <p>The lab reports below demonstrate practical application of microwave theory through hands-on laboratory experiments, data collection, and analysis.</p>
+          <!-- ==================== LAB 2 ==================== -->
+          <h2>Lab 2 &mdash; Rectangular Waveguide</h2>
+          <p>Modeled an <strong>X-band rectangular waveguide</strong> (2.286 cm &times; 1.016 cm) operating in the 8.2&ndash;12.4 GHz band. The dominant TE<sub>10</sub> mode cutoff frequency, guided wavelength, and wave impedance were calculated analytically and compared against HFSS simulation results.</p>
+          <ul>
+            <li><strong>Dominant mode propagation:</strong> S(1,1) remained below &minus;35 dB and S(2,1) at approximately 0 dB across the operating band, confirming matched, lossless propagation.</li>
+            <li><strong>E-field visualization:</strong> The simulated E-field of the dominant mode showed maximum field strength at a/2 (center of the broad wall) with zero field at the conducting boundaries, matching TE<sub>10</sub> theory.</li>
+            <li><strong>Port renormalization:</strong> When Port 1 was renormalized to 50 &Omega; (mismatched to the waveguide impedance), significant reflection appeared as expected, demonstrating impedance mismatch effects.</li>
+            <li><strong>Higher-order mode analysis:</strong> Adding a second wave mode (TE<sub>20</sub>) confirmed it was cutoff across the entire X-band, validating single-mode operation.</li>
+            <li><strong>Attenuator section:</strong> A half-width (a/2) waveguide section was shown to provide strong attenuation of the TE<sub>10</sub> mode, since halving the broad dimension pushes the cutoff above the operating band.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab2-efield-vectors.jpg" alt="E-field vector plot inside X-band rectangular waveguide showing TE10 dominant mode with maximum field at center" loading="lazy">
+              <div class="gallery__caption">E-field vectors of the TE<sub>10</sub> mode &mdash; maximum at a/2, zero at walls</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab2-s11-plot.jpg" alt="S(1,1) reflection coefficient plot for X-band waveguide showing below -35 dB reflection across operating band" loading="lazy">
+              <div class="gallery__caption">S(1,1) reflection coefficient &mdash; below &minus;35 dB across the X-band</div>
+            </div>
+          </div>
+
+          <!-- ==================== LAB 3 ==================== -->
+          <h2>Lab 3 &mdash; Microstrip Stub Tuning</h2>
+          <p>Designed shunt open-circuited <strong>single and double-stub impedance matching networks</strong> on a 50-&Omega; microstrip line. The microstrip was fabricated on FR4 epoxy substrate (&epsilon;<sub>r</sub> = 4.4, thickness 1.6 mm) with a trace width of 3.1 mm, yielding a guided wavelength of 54.8 mm at the 3 GHz design frequency.</p>
+          <ul>
+            <li><strong>Baseline microstrip:</strong> A bare 50-&Omega; line terminated in 200 &Omega; produced 4.437 dB return loss (significant mismatch), establishing the need for matching.</li>
+            <li><strong>Single-stub matching:</strong> A shunt open stub was placed at the analytically determined distance from the load. The S(1,1) plot showed a deep null at the design frequency, confirming impedance match. Periodic nulls appeared at harmonics due to the distributed nature of the stub.</li>
+            <li><strong>Double-stub matching:</strong> Two stubs provided broader bandwidth matching with deeper return loss, at the cost of more complex layout.</li>
+            <li><strong>Smith chart analysis:</strong> Pre-lab calculations used Smith chart graphical methods to determine stub lengths and positions, then verified against closed-form MATLAB solutions.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab3-microstrip-model.jpg" alt="Ansys HFSS 3D model of a 50-ohm microstrip line on FR4 substrate with lumped ports" loading="lazy">
+              <div class="gallery__caption">HFSS model of 50-&Omega; microstrip on FR4 substrate (3.1 mm trace width)</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab3-stub-tuning-sparams.jpg" alt="S(1,1) return loss plot showing periodic deep nulls from single-stub impedance matching on microstrip" loading="lazy">
+              <div class="gallery__caption">S(1,1) with stub matching &mdash; periodic nulls confirm impedance match at harmonics</div>
+            </div>
+          </div>
+
+          <!-- ==================== LAB 4 ==================== -->
+          <h2>Lab 4 &mdash; Quarter-Wave Monopole Antenna</h2>
+          <p>Designed and analyzed a <strong>linear quarter-wave monopole antenna</strong> operating at 2.2 GHz. The system was studied in two configurations: over an infinite ground plane and over a finite ground plane (&lambda;/2 radius), with a coaxial quarter-wave transformer for impedance matching.</p>
+          <ul>
+            <li><strong>Infinite ground plane:</strong> The initial quarter-wave monopole had an input impedance of 60.32 + j27.72 &Omega; (higher than the theoretical 36.5 + j21.5 &Omega; due to realistic copper conductors). The antenna was shortened to 30.5 cm to achieve resonance, reducing the reactive component to near zero.</li>
+            <li><strong>Return loss:</strong> At resonance, the simulated return loss was &minus;16.719 dB, closely matching hand calculations and confirming acceptable matching to the 50-&Omega; feed.</li>
+            <li><strong>Radiation pattern:</strong> The 3-D directivity plot showed a maximum of 5.06 dB at &theta; = 90&deg; (broadside), matching the expected hemisphere pattern for a monopole over a ground plane. The slightly reduced directivity compared to the ideal 5.17 dB is attributed to the shortened antenna length.</li>
+            <li><strong>Finite ground plane effects:</strong> Replacing the infinite ground with a finite copper disc caused back-radiation and pattern distortion, reducing front-to-back ratio and shifting the impedance.</li>
+            <li><strong>Quarter-wave transformer:</strong> A coaxial transformer section was designed to match the antenna impedance to 50 &Omega;, improving the return loss to better than &minus;20 dB at the design frequency.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab4-return-loss.jpg" alt="Return loss S(1,1) plot showing -16.719 dB at 2.2 GHz for quarter-wave monopole antenna" loading="lazy">
+              <div class="gallery__caption">Return loss at resonance: &minus;16.719 dB at 2.2 GHz</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab4-3d-directivity.jpg" alt="3D polar directivity plot of quarter-wave monopole antenna showing hemisphere radiation pattern with 5.06 dB maximum" loading="lazy">
+              <div class="gallery__caption">3-D directivity pattern &mdash; 5.06 dB max at &theta; = 90&deg; (broadside)</div>
+            </div>
+          </div>
+
+          <!-- ==================== LAB 5 ==================== -->
+          <h2>Lab 5 &mdash; Linear Antenna Arrays</h2>
+          <p>Designed and compared three types of <strong>10-element linear antenna arrays</strong> at 1 GHz with &lambda;/4 element spacing, starting from a resonant half-wave dipole reference element:</p>
+          <ul>
+            <li><strong>Reference dipole:</strong> A single resonant half-wave dipole was tuned to 66 mm length, yielding an input impedance of 71.36 &minus; j0.07 &Omega; at 1 GHz (near-ideal resonance with minimal reactance). This served as the array element.</li>
+            <li><strong>Ordinary end-fire array:</strong> Uniform amplitude excitation with progressive phase shift to steer the main beam along the positive z-axis. Theoretical directivity and half-power beamwidth (HPBW) were computed from array factor theory.</li>
+            <li><strong>Hansen&ndash;Woodyard end-fire array:</strong> Modified phasing following the Hansen&ndash;Woodyard condition to increase end-fire directivity beyond the ordinary case, at the cost of slightly elevated sidelobes.</li>
+            <li><strong>Dolph&ndash;Chebyshev broadside array:</strong> Non-uniform amplitude excitation designed for a specified sidelobe level of &minus;35 dB. The Chebyshev amplitude taper provides the narrowest possible main beam for the given sidelobe constraint.</li>
+          </ul>
+          <p>Each array configuration was exported as a custom HFSS array definition file and simulated to compare directivity, HPBW, and sidelobe level (SLL) against analytical predictions.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab5-dipole-model.jpg" alt="Ansys HFSS model of a resonant half-wave dipole antenna inside a cylindrical radiation boundary" loading="lazy">
+              <div class="gallery__caption">Resonant half-wave dipole in HFSS radiation boundary (reference element)</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/lab5-array-model.jpg" alt="Ansys HFSS 3D model of a 10-element linear dipole antenna array with quarter-wavelength spacing" loading="lazy">
+              <div class="gallery__caption">10-element linear dipole array with &lambda;/4 spacing in HFSS</div>
+            </div>
+          </div>
 
         </div>
 
@@ -75,24 +174,40 @@
           <div class="sidebar-card">
             <h3 class="sidebar-card__title">Technologies</h3>
             <div class="sidebar-card__tags">
+              <span class="tag">Ansys HFSS</span>
               <span class="tag">RF Engineering</span>
               <span class="tag">Antennas</span>
-              <span class="tag">Microwave Circuits</span>
               <span class="tag">S-Parameters</span>
+              <span class="tag">Microstrip</span>
+              <span class="tag">Waveguides</span>
               <span class="tag">Smith Chart</span>
-              <span class="tag">VNA</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">Impedance Matching</span>
+              <span class="tag">Array Theory</span>
             </div>
           </div>
           <div class="sidebar-card">
-            <h3 class="sidebar-card__title">Documents</h3>
+            <h3 class="sidebar-card__title">Lab Reports</h3>
             <div class="sidebar-card__links">
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Microwaves_and_Antennas_Labs/Mindell_Lab_1.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Lab 1: Coaxial Cable (PDF)
+              </a>
               <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Microwaves_and_Antennas_Labs/Mindell_Lab_2.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
-                Lab 2 Report (PDF)
+                Lab 2: Rectangular Waveguide (PDF)
               </a>
               <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Microwaves_and_Antennas_Labs/Mindell_Lab_3.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
-                Lab 3 Report (PDF)
+                Lab 3: Microstrip Stub Tuning (PDF)
+              </a>
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Microwaves_and_Antennas_Labs/Mindell_Lab_4.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Lab 4: Monopole Antenna (PDF)
+              </a>
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Microwaves_and_Antennas_Labs/Mindell_Lab_5.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Lab 5: Antenna Arrays (PDF)
               </a>
             </div>
           </div>
