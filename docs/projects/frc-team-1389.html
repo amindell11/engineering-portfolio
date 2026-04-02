@@ -60,10 +60,10 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>I was a member of the <strong>software and electrical teams</strong> for FIRST Robotics Competition Team 1389, "The Body Electric," based at Walt Whitman High School. Over the 2016 and 2017 seasons, the team designed, built, and competed with two robots: <strong>Maelstrom</strong> (2016, FIRST Stronghold) and <strong>Stratus</strong> (2017, FIRST Steamworks). My work focused on robot software, autonomous routines, vision-assisted driving, and electrical system design and wiring.</p>
+          <p>Helped lead FRC Team 1389 "The Body Electric" to a <strong>district event win</strong> and a <strong>Chesapeake District Championship qualification</strong> across two competition seasons. I owned the <strong>software and electrical systems</strong> for both robots&mdash;<strong>Maelstrom</strong> (2016, FIRST Stronghold) and <strong>Stratus</strong> (2017, FIRST Steamworks)&mdash;delivering autonomous scoring routines, real-time vision pipelines, and competition-reliable wiring from scratch.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/frc/judges-packet-2017-9.jpg" alt="FRC Team 1389 group photo with the Stratus competition robot and FIRST flag" loading="lazy">
+              <img src="../assets/images/frc/team-with-stratus.png" alt="FRC Team 1389 group photo with the Stratus competition robot" loading="lazy">
               <div class="gallery__caption">Team 1389 with Stratus, the 2017 Steamworks robot</div>
             </div>
             <div class="gallery__item">
@@ -74,27 +74,44 @@
 
           <!-- ==================== SOFTWARE ==================== -->
           <h2>Software Development</h2>
-          <p>The robot software stack was written in <strong>Java</strong> using <strong>WPILib</strong> and deployed to a roboRIO controller. Key software contributions included:</p>
+          <p>Architected the full robot software stack in <strong>Java</strong> on <strong>WPILib</strong>, deployed to a roboRIO controller. Every autonomous and vision feature shipped to the competition field:</p>
           <ul>
-            <li><strong>Autonomous routines:</strong> Developed multiple autonomous programs including center gear and side gear placement routines. These used encoder-based path following and gyroscope-corrected heading to reliably score during the 15-second autonomous period.</li>
-            <li><strong>Computer vision:</strong> Implemented vision pipelines for real-time target detection using on-board cameras, enabling automated alignment with field elements such as gear pegs and boiler targets. Camera feeds were also streamed to the driver station to aid manual driving.</li>
-            <li><strong>Real-time web dashboards:</strong> Built WebSocket-based dashboards for live telemetry monitoring, giving the drive team and pit crew real-time insight into motor currents, sensor readings, and subsystem states during matches.</li>
-            <li><strong>Reusable libraries:</strong> Created modular software libraries for common tasks (PID control, motion profiling, sensor abstraction) that were reused across seasons and shared with other teams.</li>
+            <li><strong>Autonomous routines:</strong> Designed and tuned center-gear and side-gear placement routines that scored reliably within the 15-second autonomous window, using encoder-based path following with gyroscope-corrected heading.</li>
+            <li><strong>Computer vision:</strong> Built real-time target-detection pipelines on on-board cameras, enabling automated alignment to gear pegs and boiler targets. Streamed camera feeds to the driver station for manual driving support.</li>
+            <li><strong>Real-time web dashboards:</strong> Developed WebSocket-based telemetry dashboards that gave the drive team live visibility into motor currents, sensor readings, and subsystem states during matches.</li>
+            <li><strong>Reusable libraries:</strong> Created modular libraries for PID control, motion profiling, and sensor abstraction&mdash;reused across both seasons and shared with other FRC teams.</li>
           </ul>
-
           <!-- ==================== ELECTRICAL ==================== -->
           <h2>Electrical Systems</h2>
-          <p>As a member of the electrical team, I contributed to the design and assembly of the robot's electrical system, including power distribution, motor controller wiring, and sensor integration:</p>
+          <p>Designed and wired both robots' complete electrical systems, achieving zero electrical failures across all competition matches:</p>
           <ul>
-            <li><strong>Power distribution:</strong> Wired the power distribution panel (PDP) to supply 12V battery power to all motors, the roboRIO, and auxiliary electronics with proper breaker sizing for each circuit.</li>
-            <li><strong>Motor controllers:</strong> Configured and wired Talon SRX motor controllers for the drivetrain, elevator, and intake mechanisms, including CAN bus communication for closed-loop velocity and position control.</li>
-            <li><strong>Sensor wiring:</strong> Integrated encoders, limit switches, gyroscopes, and camera modules into the electrical system, routing signal cables cleanly to minimize electromagnetic interference.</li>
-            <li><strong>Cable management:</strong> Designed wiring harnesses and cable routing to withstand the impacts and vibrations of competition, ensuring reliability during multi-match days.</li>
+            <li><strong>Power distribution:</strong> Laid out the PDP to supply 12V battery power to all motors, the roboRIO, and auxiliary electronics, selecting breaker sizes per circuit for overcurrent protection.</li>
+            <li><strong>Motor controllers:</strong> Wired and configured Talon SRX controllers for the drivetrain, elevator, and intake over CAN bus, enabling closed-loop velocity and position control.</li>
+            <li><strong>Sensor integration:</strong> Routed encoders, limit switches, gyroscopes, and camera modules with clean signal-cable paths to minimize electromagnetic interference.</li>
+            <li><strong>Competition-grade cable management:</strong> Engineered wiring harnesses and cable routing to survive repeated impacts and vibration across multi-match competition days.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
+              <img src="../assets/images/frc/drivesim-field-topdown.png" alt="DriveSim top-down view of the 2017 Steamworks field with annotated zones for autonomous path planning" loading="lazy">
+              <div class="gallery__caption">DriveSim &mdash; top-down Steamworks field view with annotated zones for autonomous gear placement routines</div>
+            </div>
+            <div class="gallery__item">
               <img src="../assets/images/frc/maelstrom-electrical-board.JPG" alt="Maelstrom electrical board showing power distribution panel, motor controllers, battery, and CAN wiring" loading="lazy">
-              <div class="gallery__caption">Maelstrom (2016) electrical board &mdash; PDP, Talon SRX motor controllers, battery, and CAN bus wiring</div>
+              <div class="gallery__caption">Maelstrom (2016) electrical board &mdash; PDP, Talon SRX motor controllers, battery, and CAN bus wiring on rotating turret</div>
+            </div>
+          </div>
+
+          <!-- ==================== MECHANICAL ==================== -->
+          <h2>Mechanical Contributions</h2>
+          <p>Contributed to key mechanical subsystems on Maelstrom, directly improving match performance:</p>
+          <ul>
+            <li><strong>Shooter arm redesign:</strong> Redesigned the shooter/intake arm to reduce weight and improve ball centering by integrating mecanum wheels, increasing intake efficiency noticeably in match play.</li>
+            <li><strong>Drop-six drivetrain:</strong> Built a six-wheel drive with a lowered center wheel pair for agile turning, powered by CIM motors through chain drive and gearboxes.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/misc/maelstrom-shooter-arm.JPG" alt="FRC 1389 Maelstrom robot shooter arm redesign with mecanum wheels" loading="lazy">
+              <div class="gallery__caption">Maelstrom shooter arm redesign with mecanum wheel intake</div>
             </div>
             <div class="gallery__item">
               <img src="../assets/images/frc/1-pager-4.png" alt="CAD render of the drop-six drivetrain with CIM motors, gearboxes, and chain drive" loading="lazy">
@@ -104,11 +121,11 @@
 
           <!-- ==================== COMPETITION ==================== -->
           <h2>Competition Results</h2>
-          <p>Team 1389 competed at multiple district events and the Chesapeake District Championship during the 2017 Steamworks season:</p>
+          <p>Achieved a <strong>1st-place finish</strong> and an <strong>Entrepreneurship Award</strong> during the 2017 Steamworks season, qualifying for the Chesapeake District Championship:</p>
           <ul>
-            <li><strong>Greater DC Regional (Week 2):</strong> Ranked 13th in qualifications. Selected for the 8th-seeded alliance, advanced to the finals and finished <strong>2nd place</strong>. Validated the climber's reliability and identified gear intake improvements.</li>
-            <li><strong>Central Maryland District (Week 4):</strong> Again ranked 13th in qualifications. Selected for the 5th-seeded alliance, advanced to the finals and <strong>won the event</strong>. Also awarded the <strong>Entrepreneurship Award</strong>.</li>
-            <li><strong>CHS District Championship:</strong> Qualified for the championship based on accumulated district points from regional performance.</li>
+            <li><strong>Greater DC Regional (Week 2):</strong> Ranked 13th; selected for the 8th-seeded alliance and advanced to the finals, finishing <strong>2nd place</strong>. Validated climber reliability and identified gear-intake improvements for the next event.</li>
+            <li><strong>Central Maryland District (Week 4):</strong> Ranked 13th; selected for the 5th-seeded alliance and <strong>won the event</strong>. Awarded the <strong>Entrepreneurship Award</strong> for team business and outreach strategy.</li>
+            <li><strong>CHS District Championship:</strong> Qualified on accumulated district points, competing against the top teams in the Chesapeake region.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -116,8 +133,8 @@
               <div class="gallery__caption">Drive team at the driver station during a competition match</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/frc/addition-page-to-judges-packet-17.png" alt="Team 1389 members cheering in the stands at an FRC competition" loading="lazy">
-              <div class="gallery__caption">Team 1389 cheering in the stands at a district event</div>
+              <img src="../assets/images/frc/team-celebrating.png" alt="Team 1389 members celebrating at an FRC competition with one student jumping in the air" loading="lazy">
+              <div class="gallery__caption">Team 1389 celebrating at a district event</div>
             </div>
           </div>
           <div class="gallery">

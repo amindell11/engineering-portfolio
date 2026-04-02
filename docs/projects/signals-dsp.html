@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signals &amp; DSP Final Project | Arye Mindell</title>
+  <meta name="description" content="Convolution reverb, FFT spectral analysis, and Fourier transform comparison using MATLAB and Python for EECE 3210 Signals & Linear Systems.">
+  <meta property="og:title" content="Signals & DSP Final Project | Arye Mindell">
+  <meta property="og:description" content="FFT-based spectral analysis, convolution reverb, and Fourier transform comparison in MATLAB and Python.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Home">A<span>.</span>Mindell</a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="../index.html#about" class="nav__link">About</a></li>
+          <li><a href="../index.html#projects" class="nav__link">Projects</a></li>
+          <li><a href="../index.html#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="project-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="project-hero__back">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Back to Portfolio
+      </a>
+      <h1 class="project-hero__title fade-in">Convolution Reverb &amp; DSP/FFT</h1>
+      <p class="project-hero__subtitle fade-in">Fourier Analysis &amp; Audio Processing &mdash; EECE 3210 Signals &amp; Linear Systems</p>
+      <div class="project-hero__meta fade-in">
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a23.838 23.838 0 0 0-1.012 5.434 23.956 23.956 0 0 0 4.092 2.32m-3.08-7.754L12 2.25l7.741 7.897m-15.482 0A24.32 24.32 0 0 1 12 6.147a24.32 24.32 0 0 1 7.741 4"/></svg>
+          Coursework
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+          2025
+        </div>
+        <div class="project-hero__meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.193-.14 1.743"/></svg>
+          MATLAB &amp; Python
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-content">
+    <div class="container">
+      <div class="project-content__grid">
+        <div class="project-content__main">
+
+          <!-- ==================== OVERVIEW ==================== -->
+          <h2>Overview</h2>
+          <p>This two-part final project for EECE 3210 (Signals &amp; Linear Systems) explores the <strong>Discrete Fourier Transform</strong> and its practical applications. Part 1 builds a complete spectral analysis pipeline in MATLAB, comparing the CTFT, DTFT, and DFT of a rectangular pulse signal and demonstrating perfect reconstruction via the inverse FFT. Part 2 applies these concepts to <strong>real-world audio processing</strong>, implementing a convolution reverb system in Python that applies room impulse responses to dry audio signals using FFT-based convolution.</p>
+
+          <!-- ==================== PART 1: SPECTRAL ANALYSIS ==================== -->
+          <h2>Part 1: Fourier Transform Comparison</h2>
+          <p>Starting from a continuous-time rectangular pulse, the project systematically derives and compares three representations of the signal's frequency content:</p>
+          <ul>
+            <li><strong>CTFT (Continuous-Time Fourier Transform):</strong> Analytic sinc-shaped magnitude spectrum computed symbolically, serving as the ground truth for spectral content.</li>
+            <li><strong>DTFT (Discrete-Time Fourier Transform):</strong> Frequency response of the sampled sequence, evaluated symbolically over [&minus;&pi;, &pi;] to observe aliasing effects from sampling.</li>
+            <li><strong>N-Point DFT:</strong> Practical FFT-based computation with finite samples, compared against the CTFT and DTFT to quantify spectral leakage and resolution trade-offs.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/signals-dsp/rectangular-pulse-time-domain-sampling.png" alt="Continuous-time rectangular pulse and its sampled discrete sequence" loading="lazy">
+              <div class="gallery__caption">Rectangular pulse (tau=5s) and sampled discrete sequence at fs=1 Hz</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/signals-dsp/ctft-magnitude-phase-sinc.png" alt="CTFT magnitude showing sinc function and oscillating phase spectrum" loading="lazy">
+              <div class="gallery__caption">CTFT &mdash; sinc magnitude and phase of the rectangular pulse</div>
+            </div>
+          </div>
+
+          <!-- ==================== SPECTRA COMPARISON ==================== -->
+          <h2>Spectra Comparison &amp; Reconstruction</h2>
+          <p>The three transforms were overlaid on a single plot to visually compare how well the DFT approximates the continuous-domain CTFT. Mean squared error (MSE) was computed between the DFT and CTFT magnitudes to quantify approximation accuracy. The effect of increasing the sampling rate and DFT length on reducing aliasing and spectral leakage was also investigated.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/signals-dsp/spectra-comparison-dft-ctft-dtft.png" alt="Overlay comparison of DFT, CTFT, and DTFT magnitude spectra" loading="lazy">
+              <div class="gallery__caption">Magnitude comparison &mdash; DFT, CTFT, and DTFT overlaid showing convergence</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/signals-dsp/ifft-reconstruction-comparison.png" alt="Original sequence vs IFFT-reconstructed sequence showing perfect reconstruction" loading="lazy">
+              <div class="gallery__caption">Perfect reconstruction &mdash; original samples vs. IFFT output</div>
+            </div>
+          </div>
+
+          <!-- ==================== PARAMETER STUDIES ==================== -->
+          <h2>Parameter Studies</h2>
+          <p>Additional experiments varied the sampling rate and DFT zero-padding to study their effects on spectral resolution and aliasing:</p>
+          <ul>
+            <li><strong>Increased sampling rate (fs=4 Hz):</strong> Higher sampling pushes aliased replicas further apart, improving agreement between the DFT and CTFT in the baseband.</li>
+            <li><strong>Zero-padded DFT (N=8&times;tau&times;fs):</strong> Interpolating the DFT with additional zero-padded points produces a smoother spectral estimate that closely tracks the continuous sinc envelope.</li>
+            <li><strong>Extended pulse width (tau=7):</strong> Narrower mainlobe in the frequency domain, demonstrating the time-frequency duality of the Fourier transform.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/signals-dsp/high-sample-rate-dft-spectra-comparison.png" alt="High sample rate DFT with N=8x zero padding showing reduced aliasing" loading="lazy">
+              <div class="gallery__caption">Zero-padded DFT (N=8&times;tau&times;fs) &mdash; smooth spectral interpolation</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/signals-dsp/tau7-spectra-comparison-ifft-reconstruction.png" alt="Spectra comparison and IFFT reconstruction for tau=7 pulse" loading="lazy">
+              <div class="gallery__caption">Extended pulse (tau=7) &mdash; narrower mainlobe demonstrating time-frequency duality</div>
+            </div>
+          </div>
+
+          <!-- ==================== PART 2: CONVOLUTION REVERB ==================== -->
+          <h2>Part 2: Convolution Reverb</h2>
+          <p>The second part applies Fourier analysis to <strong>audio signal processing</strong>, implementing a convolution reverb pipeline in Python. A dry audio signal is convolved with a room impulse response (IR) to simulate the acoustic characteristics of a real physical space. The convolution is performed efficiently in the frequency domain using the FFT:</p>
+          <ul>
+            <li><strong>Impulse response loading:</strong> Real-world room IRs captured from acoustic spaces, loaded and preprocessed with band-pass EQ (250 Hz &ndash; 4000 Hz cutoffs).</li>
+            <li><strong>FFT-based convolution:</strong> Both the dry signal and IR are transformed to the frequency domain, multiplied, and inverse-transformed to produce the wet (reverbed) output.</li>
+            <li><strong>Spectral analysis:</strong> Magnitude and phase spectra of the IR, dry signal, and wet output are plotted alongside their time-domain waveforms to visualize how convolution shapes the frequency content.</li>
+          </ul>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/signals-dsp/convolution-reverb-spectrum-waveform-analysis.png" alt="Spectrum and waveform analysis showing IR, dry, and wet signals with magnitude, phase, and time-domain plots" loading="lazy">
+              <div class="gallery__caption">Convolution reverb analysis &mdash; spectrum (magnitude + phase) and time-domain waveforms for IR, dry, and wet signals</div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Technologies</h3>
+            <div class="sidebar-card__tags">
+              <span class="tag">MATLAB</span>
+              <span class="tag">Python</span>
+              <span class="tag">FFT / DFT</span>
+              <span class="tag">Signal Processing</span>
+              <span class="tag">Convolution Reverb</span>
+              <span class="tag">Fourier Analysis</span>
+              <span class="tag">Spectral Analysis</span>
+              <span class="tag">NumPy / SciPy</span>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Documents</h3>
+            <div class="sidebar-card__links">
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Signals_DSP_Final_Project/Mindell_Signals_Final_Report.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Final Report (PDF)
+              </a>
+              <a href="https://github.com/amindell11/engineering-portfolio/raw/main/Signals_DSP_Final_Project/Audio_Processing_Notebook.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-card__link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                Audio Processing Notebook (PDF)
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">&copy; 2025 Arye Mindell. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

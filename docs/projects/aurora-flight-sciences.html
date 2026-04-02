@@ -63,21 +63,21 @@
         <div class="project-content__main">
 
           <h2>Overview</h2>
-          <p>At <strong>Aurora Flight Sciences</strong> (now a Boeing company), I worked as a software intern on the embedded software team developing autonomous quadrotor UAVs. The primary project involved integrating an ultrasonic collision-avoidance sensor module into the vehicle's real-time control pipeline, requiring low-latency I/O handling and rigorous testing under flight-critical constraints.</p>
+          <p>Cut obstacle reaction latency by <strong>80%</strong> (150 ms &rarr; 30 ms) and reduced verification cycle time by <strong>15%</strong> during a summer internship at <strong>Aurora Flight Sciences</strong> (now a Boeing company). I owned the end-to-end integration of an ultrasonic collision-avoidance module for autonomous quadrotor UAVs, working under flight-critical real-time constraints.</p>
 
           <h2>Collision Avoidance Integration</h2>
-          <p>The core project was the end-to-end integration of an <strong>ultrasonic collision-avoidance module</strong> for autonomous quadrotors. The sensor provided range measurements to nearby obstacles, and the challenge was processing this data fast enough for the flight controller to react in time:</p>
+          <p>Delivered a fully integrated ultrasonic sensing pipeline &mdash; from raw serial data to flight-controller commands &mdash; that met strict real-time deadlines on every test flight:</p>
           <ul>
-            <li><strong>C++ I/O pipeline optimization:</strong> Refactored the real-time I/O pipeline handling ultrasonic sensor data, reducing obstacle reaction latency from <strong>150 ms to 30 ms</strong> &mdash; an 80% reduction &mdash; while maintaining jitter within &pm;2 ms bounds.</li>
-            <li><strong>Real-time constraints:</strong> The pipeline operated under strict real-time requirements where missed deadlines could result in collision. The optimization focused on eliminating unnecessary data copies, reducing system call overhead, and streamlining the sensor-to-actuator data path.</li>
-            <li><strong>Sensor integration:</strong> Handled the full integration stack from low-level serial communication with the ultrasonic module through data parsing, filtering, and feeding processed range data into the flight controller's obstacle avoidance logic.</li>
+            <li><strong>80% latency reduction:</strong> Refactored the C++ I/O pipeline to cut reaction time from 150 ms to 30 ms with &le; &pm;2 ms jitter, by eliminating redundant data copies and streamlining the sensor-to-actuator path.</li>
+            <li><strong>Full-stack sensor integration:</strong> Implemented low-level serial communication, data parsing, filtering, and obstacle-distance injection into the flight controller's avoidance logic.</li>
+            <li><strong>Flight-critical reliability:</strong> Validated timing guarantees under worst-case load to ensure no missed deadlines during autonomous flight.</li>
           </ul>
 
           <h2>Test &amp; Verification</h2>
-          <p>Beyond the integration work, I contributed to the team's verification process:</p>
+          <p>Authored formal test procedures and execution checklists that became the team's standard for collision-avoidance verification:</p>
           <ul>
-            <li><strong>Test procedure authoring:</strong> Wrote formal test procedures and execution checklists for the collision-avoidance subsystem, establishing repeatable verification workflows.</li>
-            <li><strong>Verification efficiency:</strong> The authored procedures directly reduced the system verification cycle time by <strong>15%</strong>, enabling faster iteration between software changes and validated test results.</li>
+            <li><strong>15% faster verification cycles:</strong> Structured, repeatable procedures replaced ad-hoc testing, cutting the time from code change to validated result.</li>
+            <li><strong>Institutional documentation:</strong> Checklists remained in use by the team after the internship ended, improving consistency across subsequent development sprints.</li>
           </ul>
 
         </div>

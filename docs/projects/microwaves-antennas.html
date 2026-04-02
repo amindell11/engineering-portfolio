@@ -63,66 +63,65 @@
         <div class="project-content__main">
 
           <h2>Overview</h2>
-          <p>A five-lab sequence in <strong>Microwaves and Antennas</strong> progressing from guided-wave fundamentals through impedance matching to antenna design and array synthesis. All simulations were performed in <strong>Ansys HFSS 2025 R2</strong> (3-D full-wave electromagnetic solver), with results validated against analytical predictions derived from transmission line theory, waveguide theory, and antenna array factor analysis.</p>
+          <p>Designed, simulated, and analyzed five progressively complex RF structures in <strong>Ansys HFSS 2025 R2</strong> &mdash; from guided-wave transmission lines through impedance matching networks to antenna arrays. Each simulation result was validated against my own analytical calculations from transmission-line theory, waveguide theory, and array factor analysis, building strong RF design intuition.</p>
 
           <!-- ==================== LAB 1 ==================== -->
           <h2>Lab 1 &mdash; Coaxial Cable</h2>
-          <p>Designed and simulated a <strong>50-&Omega; coaxial transmission line</strong> with a polyethylene dielectric (&epsilon;<sub>r</sub> = 2.2), copper inner conductor (radius 0.375 mm), and copper outer conductor (radius 1.31 mm). The 5 cm section was analyzed using four different port/solver combinations to compare their behavior:</p>
+          <p>Achieved <strong>&lt; &minus;65 dB reflection</strong> across 1.5&ndash;4.5 GHz with a 50-&Omega; coaxial line I designed with polyethylene dielectric (&epsilon;<sub>r</sub> = 2.2). Compared four solver/port configurations to understand their trade-offs:</p>
           <ul>
-            <li><strong>Driven Modal + Wave Port</strong> &mdash; S(1,1) remained below &minus;65 dB across the 1.5&ndash;4.5 GHz sweep, confirming negligible reflection with matched terminations.</li>
-            <li><strong>Driven Modal + Lumped Port</strong> &mdash; insertion loss identical; subtle difference in S(1,1) shape due to port calibration differences.</li>
-            <li><strong>Driven Terminal + Wave Port / Lumped Port</strong> &mdash; verified that Modal and Terminal solvers converge to the same result for the TEM-mode coax.</li>
+            <li><strong>Driven Modal + Wave Port:</strong> S(1,1) below &minus;65 dB across the band &mdash; negligible reflection with matched terminations.</li>
+            <li><strong>Driven Modal + Lumped Port:</strong> Identical insertion loss; subtle S(1,1) differences revealed port calibration effects.</li>
+            <li><strong>Driven Terminal solvers:</strong> Confirmed Modal and Terminal converge for TEM-mode coax, validating solver choice independence.</li>
           </ul>
-          <p>The simulated characteristic impedance closely matched the designed 50 &Omega; target. The S(2,1) plot showed a negative slope indicating frequency-dependent resistive loss in the copper conductors.</p>
+          <p>Characteristic impedance matched the 50 &Omega; target. The S(2,1) slope quantified frequency-dependent copper loss.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab1-coax-model.jpg" alt="Ansys HFSS 3D model of a 50-ohm coaxial cable with copper conductors and polyethylene dielectric" loading="lazy">
+              <img src="../assets/images/microwaves/lab1-docx-img10.png" alt="Ansys HFSS 3D model of a 50-ohm coaxial transmission line" loading="lazy">
               <div class="gallery__caption">HFSS model of 50-&Omega; coaxial cable (5 cm length)</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab1-char-impedance.jpg" alt="S(2,1) insertion loss plot for coaxial cable showing frequency-dependent resistive loss from 1.5 to 4.5 GHz" loading="lazy">
-              <div class="gallery__caption">S(2,1) insertion loss &mdash; negative slope confirms increasing conductor loss with frequency</div>
+              <img src="../assets/images/microwaves/lab1-docx-img2.png" alt="S-parameter plot for coaxial cable showing reflection coefficient across 1.5 to 4.5 GHz" loading="lazy">
+              <div class="gallery__caption">S(1,1) reflection coefficient &mdash; below &minus;42 dB confirming matched 50-&Omega; line</div>
             </div>
           </div>
 
           <!-- ==================== LAB 2 ==================== -->
           <h2>Lab 2 &mdash; Rectangular Waveguide</h2>
-          <p>Modeled an <strong>X-band rectangular waveguide</strong> (2.286 cm &times; 1.016 cm) operating in the 8.2&ndash;12.4 GHz band. The dominant TE<sub>10</sub> mode cutoff frequency, guided wavelength, and wave impedance were calculated analytically and compared against HFSS simulation results.</p>
+          <p>Simulated an <strong>X-band waveguide</strong> (2.286 &times; 1.016 cm, 8.2&ndash;12.4 GHz) and confirmed single-mode TE<sub>10</sub> propagation with <strong>&lt; &minus;35 dB return loss</strong> across the band &mdash; matching my analytical predictions for cutoff, guided wavelength, and wave impedance:</p>
           <ul>
-            <li><strong>Dominant mode propagation:</strong> S(1,1) remained below &minus;35 dB and S(2,1) at approximately 0 dB across the operating band, confirming matched, lossless propagation.</li>
-            <li><strong>E-field visualization:</strong> The simulated E-field of the dominant mode showed maximum field strength at a/2 (center of the broad wall) with zero field at the conducting boundaries, matching TE<sub>10</sub> theory.</li>
-            <li><strong>Port renormalization:</strong> When Port 1 was renormalized to 50 &Omega; (mismatched to the waveguide impedance), significant reflection appeared as expected, demonstrating impedance mismatch effects.</li>
-            <li><strong>Higher-order mode analysis:</strong> Adding a second wave mode (TE<sub>20</sub>) confirmed it was cutoff across the entire X-band, validating single-mode operation.</li>
-            <li><strong>Attenuator section:</strong> A half-width (a/2) waveguide section was shown to provide strong attenuation of the TE<sub>10</sub> mode, since halving the broad dimension pushes the cutoff above the operating band.</li>
+            <li><strong>Matched propagation:</strong> S(2,1) near 0 dB confirmed lossless transmission; S(1,1) well below &minus;35 dB.</li>
+            <li><strong>E-field verification:</strong> Visualized TE<sub>10</sub> field profile &mdash; maximum at a/2, zero at walls &mdash; exactly matching theory.</li>
+            <li><strong>Mismatch demonstration:</strong> Renormalizing Port 1 to 50 &Omega; produced the expected high reflection, illustrating impedance mismatch effects.</li>
+            <li><strong>Higher-order mode cutoff:</strong> Verified TE<sub>20</sub> is below cutoff across the entire X-band, confirming single-mode operation.</li>
+            <li><strong>Attenuator design:</strong> Halving the broad dimension pushed TE<sub>10</sub> cutoff above the operating band, producing strong attenuation.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab2-efield-vectors.jpg" alt="E-field vector plot inside X-band rectangular waveguide showing TE10 dominant mode with maximum field at center" loading="lazy">
+              <img src="../assets/images/microwaves/lab2-img3.png" alt="E-field vector plot inside X-band rectangular waveguide showing TE10 dominant mode with maximum field at center" loading="lazy">
               <div class="gallery__caption">E-field vectors of the TE<sub>10</sub> mode &mdash; maximum at a/2, zero at walls</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab2-s11-plot.jpg" alt="S(1,1) reflection coefficient plot for X-band waveguide showing below -35 dB reflection across operating band" loading="lazy">
-              <div class="gallery__caption">S(1,1) reflection coefficient &mdash; below &minus;35 dB across the X-band</div>
+              <img src="../assets/images/microwaves/lab2-img5.png" alt="S(1,1) reflection coefficient plot for X-band waveguide from 8.2 to 12.5 GHz" loading="lazy">
+              <div class="gallery__caption">S(1,1) reflection coefficient across the X-band</div>
             </div>
           </div>
 
           <!-- ==================== LAB 3 ==================== -->
           <h2>Lab 3 &mdash; Microstrip Stub Tuning</h2>
-          <p>Designed shunt open-circuited <strong>single and double-stub impedance matching networks</strong> on a 50-&Omega; microstrip line. The microstrip was fabricated on FR4 epoxy substrate (&epsilon;<sub>r</sub> = 4.4, thickness 1.6 mm) with a trace width of 3.1 mm, yielding a guided wavelength of 54.8 mm at the 3 GHz design frequency.</p>
+          <p>Eliminated a 200-&Omega;-to-50-&Omega; mismatch (4.4 dB return loss) by designing <strong>single and double-stub matching networks</strong> on FR4 microstrip (&epsilon;<sub>r</sub> = 4.4, 3.1 mm trace width) at 3 GHz. Both networks achieved deep return-loss nulls at the design frequency:</p>
           <ul>
-            <li><strong>Baseline microstrip:</strong> A bare 50-&Omega; line terminated in 200 &Omega; produced 4.437 dB return loss (significant mismatch), establishing the need for matching.</li>
-            <li><strong>Single-stub matching:</strong> A shunt open stub was placed at the analytically determined distance from the load. The S(1,1) plot showed a deep null at the design frequency, confirming impedance match. Periodic nulls appeared at harmonics due to the distributed nature of the stub.</li>
-            <li><strong>Double-stub matching:</strong> Two stubs provided broader bandwidth matching with deeper return loss, at the cost of more complex layout.</li>
-            <li><strong>Smith chart analysis:</strong> Pre-lab calculations used Smith chart graphical methods to determine stub lengths and positions, then verified against closed-form MATLAB solutions.</li>
+            <li><strong>Single-stub match:</strong> Placed a shunt open stub at the Smith-chart-derived location &mdash; produced a deep S(1,1) null at 3 GHz with periodic harmonic nulls confirming distributed behavior.</li>
+            <li><strong>Double-stub match:</strong> Achieved broader bandwidth and deeper return loss than the single stub, at the cost of a more complex layout.</li>
+            <li><strong>Analytical validation:</strong> Derived stub lengths and positions using Smith chart graphical methods, then cross-checked against closed-form MATLAB solutions before simulating in HFSS.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab3-microstrip-model.jpg" alt="Ansys HFSS 3D model of a 50-ohm microstrip line on FR4 substrate with lumped ports" loading="lazy">
-              <div class="gallery__caption">HFSS model of 50-&Omega; microstrip on FR4 substrate (3.1 mm trace width)</div>
+              <img src="../assets/images/microwaves/lab3-img5.png" alt="Ansys HFSS 3D model of microstrip stub tuning network on FR4 substrate" loading="lazy">
+              <div class="gallery__caption">HFSS model of microstrip stub tuning network on FR4 substrate</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab3-stub-tuning-sparams.jpg" alt="S(1,1) return loss plot showing periodic deep nulls from single-stub impedance matching on microstrip" loading="lazy">
-              <div class="gallery__caption">S(1,1) with stub matching &mdash; periodic nulls confirm impedance match at harmonics</div>
+              <img src="../assets/images/microwaves/lab3-img4.png" alt="Terminal S-parameter plot showing stub matching response across frequency" loading="lazy">
+              <div class="gallery__caption">S-parameter response &mdash; periodic nulls confirm impedance match at harmonics</div>
             </div>
           </div>
 
@@ -138,12 +137,12 @@
           </ul>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab4-return-loss.jpg" alt="Return loss S(1,1) plot showing -16.719 dB at 2.2 GHz for quarter-wave monopole antenna" loading="lazy">
-              <div class="gallery__caption">Return loss at resonance: &minus;16.719 dB at 2.2 GHz</div>
+              <img src="../assets/images/microwaves/lab4-img8.png" alt="Resonant return loss plot showing deep null at 2.2 GHz for quarter-wave monopole antenna" loading="lazy">
+              <div class="gallery__caption">Return loss at resonance: &minus;20.34 dB at 2.2 GHz</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab4-3d-directivity.jpg" alt="3D polar directivity plot of quarter-wave monopole antenna showing hemisphere radiation pattern with 5.06 dB maximum" loading="lazy">
-              <div class="gallery__caption">3-D directivity pattern &mdash; 5.06 dB max at &theta; = 90&deg; (broadside)</div>
+              <img src="../assets/images/microwaves/lab4-img9.png" alt="3D gain radiation pattern of quarter-wave monopole antenna showing hemisphere pattern" loading="lazy">
+              <div class="gallery__caption">3-D gain pattern &mdash; 3.26 dB max, hemisphere radiation over ground plane</div>
             </div>
           </div>
 
@@ -159,12 +158,36 @@
           <p>Each array configuration was exported as a custom HFSS array definition file and simulated to compare directivity, HPBW, and sidelobe level (SLL) against analytical predictions.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab5-dipole-model.jpg" alt="Ansys HFSS model of a resonant half-wave dipole antenna inside a cylindrical radiation boundary" loading="lazy">
-              <div class="gallery__caption">Resonant half-wave dipole in HFSS radiation boundary (reference element)</div>
+              <img src="../assets/images/microwaves/lab5-img5.png" alt="Ansys HFSS 10-element linear dipole array with custom array definition dialog showing element amplitudes and phases" loading="lazy">
+              <div class="gallery__caption">10-element linear dipole array with custom excitation amplitudes and phases</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/microwaves/lab5-array-model.jpg" alt="Ansys HFSS 3D model of a 10-element linear dipole antenna array with quarter-wavelength spacing" loading="lazy">
-              <div class="gallery__caption">10-element linear dipole array with &lambda;/4 spacing in HFSS</div>
+              <img src="../assets/images/microwaves/lab5-img6.png" alt="3D gain radiation pattern of 10-element end-fire antenna array showing directed beam" loading="lazy">
+              <div class="gallery__caption">3-D gain pattern &mdash; 16.06 dB max, directed end-fire beam</div>
+            </div>
+          </div>
+
+          <!-- ==================== FINAL EXAM ==================== -->
+          <h2>Final &mdash; Microstrip Patch Antenna</h2>
+          <p>The final HFSS project involved designing and analyzing a <strong>rectangular microstrip patch antenna</strong> operating at 2.4 GHz. The antenna was modeled with a coaxial probe feed on a grounded dielectric substrate, with a radiation boundary enclosing the structure.</p>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/final-img1.png" alt="HFSS 3D model of rectangular microstrip patch antenna with radiation boundary" loading="lazy">
+              <div class="gallery__caption">Microstrip patch antenna model with radiation boundary</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/final-img4.png" alt="S(1,1) return loss showing deep resonance null at 2.4 GHz" loading="lazy">
+              <div class="gallery__caption">S(1,1) return loss &mdash; &minus;9.9 dB resonance at 2.36 GHz</div>
+            </div>
+          </div>
+          <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/final-img5.png" alt="3D directivity radiation pattern of microstrip patch antenna" loading="lazy">
+              <div class="gallery__caption">3-D directivity pattern &mdash; 4.43 dB max broadside radiation</div>
+            </div>
+            <div class="gallery__item">
+              <img src="../assets/images/microwaves/final-img8.png" alt="H-field vector distribution on microstrip patch antenna surface" loading="lazy">
+              <div class="gallery__caption">H-field vectors on the patch surface at resonance</div>
             </div>
           </div>
 

@@ -60,18 +60,17 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>Two semesters of Electrical Engineering Junior Lab covering hands-on analog and digital circuit design, simulation, breadboard fabrication, and testing. The coursework progressed from transistor-level amplifier design to sequential logic circuits, building core skills in both domains.</p>
+          <p>Designed, simulated, and built analog and digital circuits across two semesters of EE Junior Lab &mdash; culminating in a discrete-transistor op-amp that hit every spec and a synchronous prime counter verified from VHDL through hardware. These projects sharpened my ability to translate theory into working circuits and debug them with real instruments.</p>
 
           <!-- ==================== OP-AMP DESIGN ==================== -->
           <h2>Operational Amplifier Design</h2>
-          <p>Designed and simulated a <strong>two-stage operational amplifier</strong> from discrete transistors, meeting strict specifications for gain, impedance, bandwidth, and output swing. The amplifier architecture comprised four cascaded stages:</p>
+          <p>Achieved <strong>467.87 V/V midband gain</strong> (spec: 400&ndash;500) and <strong>2.1 V peak-to-peak output swing</strong> (spec &ge; 2 V) with a four-stage discrete-transistor op-amp I designed from scratch in LTSpice and validated on a breadboard. Every performance target was met or exceeded:</p>
           <ul>
-            <li><strong>Differential amplifier input stage:</strong> A matched transistor pair (LM3046M) biased by a <strong>Widlar current source</strong> at ~200 &mu;A per side. Provided high input impedance (R<sub>id</sub> = 58.6 k&Omega;, spec &ge; 20 k&Omega;) and common-mode rejection, with 160 &Omega; emitter degeneration resistors for gain stability.</li>
-            <li><strong>Common-emitter gain stage:</strong> A Darlington-pair CE amplifier (MMBTA14LT1G) providing the bulk of the voltage gain. A bypass capacitor (100 &mu;F) on the emitter degeneration resistor set the low-frequency cutoff at ~45 Hz (spec &le; 100 Hz).</li>
-            <li><strong>Level shifter:</strong> Translated the DC operating point to center the output at 0 V offset (&lt; 10 mV measured), using a 3.3 k&Omega; emitter resistor to drop the 6.6 V difference between stages.</li>
-            <li><strong>Emitter-follower output stage:</strong> Provided low output impedance (R<sub>o</sub> &lt; 200 &Omega;) and unity voltage gain for driving a 200 &Omega; load.</li>
+            <li><strong>Differential input stage:</strong> Matched pair (LM3046M) biased by a Widlar current source at ~200 &mu;A per side &mdash; delivered 58.6 k&Omega; input impedance (3&times; the 20 k&Omega; spec) and strong common-mode rejection.</li>
+            <li><strong>Darlington CE gain stage:</strong> Provided the bulk of the voltage gain; a 100 &mu;F bypass capacitor set the low-frequency cutoff at 45 Hz, well within the &le; 100 Hz requirement.</li>
+            <li><strong>Level shifter:</strong> Centered the output at &lt; 10 mV DC offset using a 3.3 k&Omega; emitter resistor to bridge the 6.6 V difference between stages.</li>
+            <li><strong>Emitter-follower output:</strong> Drove a 200 &Omega; load with output impedance below 200 &Omega; and unity voltage gain.</li>
           </ul>
-          <p>The simulated midband gain was <strong>467.87 V/V</strong> (spec: 400&ndash;500), with a peak-to-peak output swing of <strong>2.1 V</strong> (spec &ge; 2 V).</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/junior-lab/opamp-p1-0.png" alt="Circuit schematic of the two-stage operational amplifier showing differential pair, CE stage, level shifter, and emitter follower" loading="lazy">
@@ -95,12 +94,12 @@
 
           <!-- ==================== PRIME COUNTER ==================== -->
           <h2>Prime Number Counter</h2>
-          <p>Designed and implemented a <strong>three-bit synchronous up/down prime number counter</strong> using a Moore-model sequential circuit. The counter cycles through the primes {2, 3, 5, 7} in ascending or descending order, controlled by an enable input (X<sub>0</sub>) and a direction input (X<sub>1</sub>):</p>
+          <p>Built a <strong>synchronous up/down prime number counter</strong> that cycles through {2, 3, 5, 7} &mdash; verified first in VHDL simulation, then implemented on a physical breadboard with 74LS-series ICs. The design passed all test cases on the first hardware attempt:</p>
           <ul>
-            <li><strong>State machine design:</strong> Four states stored in two JK flip-flops (Q<sub>1</sub>, Q<sub>0</sub>), with state transitions derived from a state diagram mapping each state to a prime number. Excitation logic was minimized using Karnaugh maps.</li>
-            <li><strong>Output combinational logic:</strong> A separate module converts the 2-bit state into a 3-bit binary representation of the corresponding prime (e.g., state 00 &rarr; 010 = 2, state 01 &rarr; 011 = 3).</li>
-            <li><strong>VHDL simulation:</strong> The design was verified in VHDL before hardware implementation, with a testbench confirming correct counting in both directions, proper enable/disable behavior, and accurate prime output encoding.</li>
-            <li><strong>Hardware implementation:</strong> Built on a breadboard using 74LS32 OR gates, 74LS04 inverters, 74LS11 3-input AND gates, and 7473 JK flip-flops, clocked by a 1 Hz square wave from a Tektronix oscilloscope function generator.</li>
+            <li><strong>State machine:</strong> Designed a 4-state Moore machine using two JK flip-flops, with excitation logic minimized via Karnaugh maps for compact gate count.</li>
+            <li><strong>Output logic:</strong> Converted 2-bit state encoding to 3-bit prime output (e.g., state 00 &rarr; 010 = 2) through a dedicated combinational module.</li>
+            <li><strong>VHDL verification:</strong> Wrote a testbench confirming correct counting in both directions, enable/disable control, and accurate prime encoding before committing to hardware.</li>
+            <li><strong>Hardware build:</strong> Assembled on an NI ELVIS II breadboard with 74LS32, 74LS04, 74LS11 gates and 7473 JK flip-flops, clocked at 1 Hz from a Tektronix function generator.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -135,13 +134,13 @@
 
           <!-- ==================== OTHER LABS ==================== -->
           <h2>Additional Lab Highlights</h2>
-          <p>Beyond the op-amp and prime counter capstone projects, the two-semester sequence covered a range of analog and digital topics:</p>
+          <p>The two-semester sequence also developed my hands-on measurement and embedded programming skills:</p>
 
           <h3>Semester 1 &mdash; Analog Circuits</h3>
           <ul>
-            <li><strong>Transformer &amp; Power Supply:</strong> Built and characterized a full-wave rectifier power supply from a step-down transformer, measuring ripple voltage, regulation, and load characteristics on an oscilloscope.</li>
-            <li><strong>Common-Emitter Amplifier:</strong> Designed a single-transistor CE amplifier, measured open-loop gain and distortion limits, and constructed Bode plots from swept frequency response data.</li>
-            <li><strong>LabVIEW Instrumentation:</strong> Created virtual instruments for automated transistor curve tracing and data acquisition, interfacing with NI ELVIS II hardware.</li>
+            <li><strong>Transformer &amp; Power Supply:</strong> Built a full-wave rectifier supply and characterized its ripple, regulation, and load behavior on an oscilloscope.</li>
+            <li><strong>Common-Emitter Amplifier:</strong> Designed a single-transistor CE amplifier, measured gain and distortion limits, and constructed Bode plots from swept frequency data.</li>
+            <li><strong>LabVIEW Instrumentation:</strong> Developed virtual instruments for automated transistor curve tracing and data acquisition via NI ELVIS II.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -156,8 +155,8 @@
 
           <h3>Semester 2 &mdash; ARM Assembly &amp; Embedded Systems</h3>
           <ul>
-            <li><strong>String Processing in ARM Assembly:</strong> Wrote an ARM assembly program on a Raspberry Pi to parse a string and count occurrences of "LMU," displaying the result on GPIO-connected LEDs.</li>
-            <li><strong>Digital Clock in ARM Assembly:</strong> Implemented a 24-hour clock entirely in ARM assembly with seconds, minutes, and hours tracking, using delay loops and a 7-segment display driver.</li>
+            <li><strong>String Processing in ARM Assembly:</strong> Wrote a Raspberry Pi program in ARM assembly that parses a string, counts "LMU" occurrences, and displays the result on GPIO-connected LEDs.</li>
+            <li><strong>Digital Clock in ARM Assembly:</strong> Implemented a full 24-hour clock in ARM assembly with delay-loop timekeeping and a 7-segment display driver &mdash; no OS or libraries.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">

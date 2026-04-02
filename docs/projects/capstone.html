@@ -64,7 +64,7 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>The senior capstone project is an <strong>autonomous ball-catching robotic arm</strong> system. The goal is for a robotic arm to detect a thrown ball in real time, predict its trajectory, plan a collision-free motion, and move to an intercept position to catch it &mdash; all within the fraction of a second the ball is in flight. The system integrates an xArm5 robot arm, a Time-of-Flight (ToF) depth camera for 3D perception, stereo camera tracking, and ROS 2 with MoveIt for real-time motion planning.</p>
+          <p>I built an <strong>autonomous ball-catching robotic arm</strong> that detects a thrown ball, predicts its trajectory, and moves to intercept &mdash; all within a sub-second window of flight. I designed and integrated the full sensing-to-actuation pipeline: an xArm5 robot arm, a Time-of-Flight depth camera for 3D workspace mapping, a FLIR machine-vision tracking camera, and a ROS 2 / MoveIt control stack that plans collision-free motions in real time.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/capstone/arm-lab-setup.jpg" alt="xArm5 robotic arm in the lab with overhead ToF sensor and workspace setup" loading="lazy">
@@ -78,11 +78,11 @@
 
           <!-- ==================== PERCEPTION ==================== -->
           <h2>Perception &amp; Ball Detection</h2>
-          <p>The perception pipeline combines multiple sensing modalities to detect and track the ball in 3D space:</p>
+          <p>I developed a multi-sensor perception pipeline that delivers reliable 3D ball tracking at camera frame rate:</p>
           <ul>
-            <li><strong>Time-of-Flight depth camera:</strong> An overhead ToF depth camera provides a dense point cloud of the workspace for environment mapping, obstacle detection, and sensor-to-robot calibration.</li>
-            <li><strong>Tracking camera:</strong> A Kowa 3.5mm wide-angle lens on a FLIR machine vision camera provides the ball detection feed, with color-based segmentation producing real-time 3D position estimates.</li>
-            <li><strong>Ball state estimation:</strong> Detected ball positions are fed into a ballistic state estimator that fits measurements to a physics-based projectile model, predicting the full trajectory from just a few frames of flight data.</li>
+            <li><strong>Time-of-Flight depth camera:</strong> Mounted overhead to generate a dense point cloud of the workspace. I used this for environment mapping, obstacle detection, and sensor-to-robot extrinsic calibration.</li>
+            <li><strong>Tracking camera:</strong> Implemented color-based segmentation on a Kowa 3.5 mm wide-angle lens paired with a FLIR machine-vision camera, producing real-time 3D ball position estimates each frame.</li>
+            <li><strong>Ball state estimation:</strong> Designed a ballistic state estimator that fits a physics-based projectile model to just a few frames of detected positions, predicting the full trajectory within milliseconds of release.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
@@ -97,7 +97,7 @@
 
           <!-- ==================== TRAJECTORY & WORKSPACE ==================== -->
           <h2>Trajectory Prediction &amp; Workspace</h2>
-          <p>The ball's trajectory must be predicted in real time to determine where and when the arm should intercept. The system computes the arm's <strong>reachable workspace envelope</strong> and only attempts catches for trajectories passing through it:</p>
+          <p>I computed the xArm5's <strong>reachable workspace envelope</strong> from its kinematic model and used it as a real-time gate: the system only commits to a catch when the predicted trajectory intersects the catchable zone. This eliminated wasted motion on unreachable throws and let the controller focus planning time on viable intercepts.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/capstone/ball-state-estimator.png" alt="3D visualization showing color-coded ball trajectory estimates from the state estimator with obstacle positions" loading="lazy">
@@ -111,7 +111,7 @@
 
           <!-- ==================== MOTION PLANNING ==================== -->
           <h2>Motion Planning &amp; Control</h2>
-          <p>The arm uses a <strong>Model Predictive Controller (MPC)</strong> with a dynamic optimizer (QP solver) to generate real-time joint velocity commands. The controller incorporates the system model, cost function, and constraints to produce smooth, collision-free motions fast enough to beat the ball to the intercept point:</p>
+          <p>I implemented a <strong>Model Predictive Controller (MPC)</strong> backed by a QP solver that generates real-time joint velocity commands. The controller optimizes a cost function subject to joint limits and obstacle constraints, producing smooth, collision-free motions fast enough to reach the intercept point before the ball arrives.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/capstone/obstacle-avoidance-sim.gif" alt="Animated GIF showing simulated robot arm avoiding obstacles while moving to catch position" loading="lazy">
@@ -125,7 +125,7 @@
 
           <!-- ==================== TESTING ==================== -->
           <h2>Testing &amp; Results</h2>
-          <p>The system progressed from simulation-only testing to closed-loop catch attempts with live ball throws. Real-time ball tracking accuracy and joint position tracking were validated using Foxglove:</p>
+          <p>I validated the full pipeline from Gazebo simulation through closed-loop catch attempts with live ball throws. Verified ball-tracking accuracy and joint-position tracking in real time using Foxglove, iterating on estimator tuning and controller gains to close the gap between simulated and physical performance.</p>
           <div class="gallery">
             <div class="gallery__item">
               <img src="../assets/images/capstone/ball-tracking-plots.png" alt="Ball position tracking plots showing estimated vs actual positions across x, y, z axes" loading="lazy">
