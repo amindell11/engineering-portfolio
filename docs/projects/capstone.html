@@ -67,90 +67,73 @@
           <p>The senior capstone project is an <strong>autonomous ball-catching robotic arm</strong> system. The goal is for a robotic arm to detect a thrown ball in real time, predict its trajectory, plan a collision-free motion, and move to an intercept position to catch it &mdash; all within the fraction of a second the ball is in flight. The system integrates an xArm5 robot arm, a Time-of-Flight (ToF) depth camera for 3D perception, stereo camera tracking, and ROS 2 with MoveIt for real-time motion planning.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/capstone/arm-lab-setup.jpg" alt="xArm5 robotic arm in the lab with overhead LiDAR sensor and workspace setup" loading="lazy">
-              <div class="gallery__caption">Physical lab setup &mdash; xArm5 with overhead LiDAR sensor and catch workspace</div>
+              <img src="../assets/images/capstone/arm-lab-setup.jpg" alt="xArm5 robotic arm in the lab with overhead ToF sensor and workspace setup" loading="lazy">
+              <div class="gallery__caption">Physical lab setup &mdash; xArm5 with overhead ToF depth camera and catch workspace</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/capstone/workspace-layout.png" alt="SketchUp model showing workspace layout with robot arm, LiDAR, tracking camera, and obstacle boundaries" loading="lazy">
-              <div class="gallery__caption">SketchUp workspace layout &mdash; arm, LiDAR, tracking camera, and obstacle boundaries</div>
+              <img src="../assets/images/capstone/system-architecture.png" alt="System architecture block diagram showing perception, processing, and robot control pipeline" loading="lazy">
+              <div class="gallery__caption">System architecture &mdash; ToF obstacle detection, ball tracking camera, intercept decider, and motion controller</div>
             </div>
           </div>
 
           <!-- ==================== PERCEPTION ==================== -->
-          <h2>Perception &amp; Sensor Fusion</h2>
+          <h2>Perception &amp; Ball Detection</h2>
           <p>The perception pipeline combines multiple sensing modalities to detect and track the ball in 3D space:</p>
           <ul>
-            <li><strong>Time-of-Flight depth camera:</strong> An overhead ToF depth camera provides a dense point cloud of the workspace with higher accuracy than LiDAR-based 3D scanning, used for environment mapping, obstacle detection, and calibration of the sensor-to-robot coordinate frame.</li>
-            <li><strong>Stereo camera calibration:</strong> A stereo camera pair was calibrated using a dot-pattern calibration board, enabling depth estimation from disparity for ball position triangulation.</li>
-            <li><strong>Ball detection:</strong> Computer vision algorithms detect the ball in the camera feed, producing real-time 3D position estimates that feed into the trajectory predictor.</li>
-            <li><strong>Sensor-to-robot registration:</strong> Extrinsic calibration between the ToF camera, stereo cameras, and the robot base frame ensures all position data is transformed into a common coordinate system for accurate motion planning.</li>
+            <li><strong>Time-of-Flight depth camera:</strong> An overhead ToF depth camera provides a dense point cloud of the workspace for environment mapping, obstacle detection, and sensor-to-robot calibration.</li>
+            <li><strong>Tracking camera:</strong> A Kowa 3.5mm wide-angle lens on a FLIR machine vision camera provides the ball detection feed, with color-based segmentation producing real-time 3D position estimates.</li>
+            <li><strong>Ball state estimation:</strong> Detected ball positions are fed into a ballistic state estimator that fits measurements to a physics-based projectile model, predicting the full trajectory from just a few frames of flight data.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/capstone/rviz-lidar-camera.png" alt="RViz visualization showing ToF depth camera point cloud overlaid on robot model alongside live camera feed" loading="lazy">
-              <div class="gallery__caption">RViz with ToF point cloud overlay and live camera feed &mdash; Foxglove bridge for visualization</div>
+              <img src="../assets/images/capstone/foxglove-lidar-camera.png" alt="Foxglove visualization showing ToF point cloud overlaid on robot model alongside live camera feed of the xArm5" loading="lazy">
+              <div class="gallery__caption">Foxglove visualization &mdash; ToF point cloud with live camera feed of the xArm5 in the lab</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/capstone/lidar-calibration.png" alt="ToF depth camera 3D point cloud of calibration board used for sensor-to-robot registration" loading="lazy">
-              <div class="gallery__caption">ToF depth camera scan of calibration board for sensor-to-robot coordinate registration</div>
+              <img src="../assets/images/capstone/ball-detection.gif" alt="Animated GIF showing real-time ball detection with bounding box tracking in the camera feed" loading="lazy">
+              <div class="gallery__caption">Real-time ball detection &mdash; color segmentation with bounding box tracking</div>
             </div>
           </div>
 
-          <!-- ==================== TRAJECTORY PREDICTION ==================== -->
-          <h2>Trajectory Prediction</h2>
-          <p>Once the ball is detected, its trajectory must be predicted in real time to determine where and when the arm should intercept it. The system uses a <strong>ballistic state estimator</strong> that fits incoming position measurements to a physics-based projectile model, accounting for gravity and air resistance:</p>
-          <ul>
-            <li><strong>Reachable workspace analysis:</strong> The arm's reachable volume was computed and visualized as a 3D envelope, defining the set of feasible intercept points. Only trajectories passing through this volume are deemed catchable.</li>
-            <li><strong>Trajectory sampling:</strong> Multiple candidate ball trajectories from different throw angles and speeds were simulated to validate the workspace coverage and identify blind spots.</li>
-            <li><strong>State estimation:</strong> A recursive estimator refines the predicted landing point as new camera frames arrive, converging to a stable intercept target within the first few frames of flight.</li>
-          </ul>
+          <!-- ==================== TRAJECTORY & WORKSPACE ==================== -->
+          <h2>Trajectory Prediction &amp; Workspace</h2>
+          <p>The ball's trajectory must be predicted in real time to determine where and when the arm should intercept. The system computes the arm's <strong>reachable workspace envelope</strong> and only attempts catches for trajectories passing through it:</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/capstone/trajectory-workspace.png" alt="3D visualization of the arm's reachable workspace as a fan-shaped envelope with ball trajectory arcs" loading="lazy">
-              <div class="gallery__caption">Reachable workspace envelope &mdash; catchable zone defined by arm kinematics</div>
+              <img src="../assets/images/capstone/ball-state-estimator.png" alt="3D visualization showing color-coded ball trajectory estimates from the state estimator with obstacle positions" loading="lazy">
+              <div class="gallery__caption">Ball state estimator output &mdash; color-coded trajectory predictions with obstacle positions</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/capstone/trajectory-side-view.png" alt="Side view of simulated ball trajectories arcing through the robot arm's reachable workspace" loading="lazy">
-              <div class="gallery__caption">Simulated ball trajectories (side view) &mdash; arcs passing through the intercept zone</div>
+              <img src="../assets/images/capstone/catch-workspace.png" alt="3D visualization of the arm's reachable workspace as a fan-shaped envelope" loading="lazy">
+              <div class="gallery__caption">Reachable workspace envelope &mdash; catchable zone defined by arm kinematics</div>
             </div>
           </div>
 
           <!-- ==================== MOTION PLANNING ==================== -->
           <h2>Motion Planning &amp; Control</h2>
-          <p>The arm's motion is planned and executed using <strong>ROS 2</strong> with the <strong>MoveIt</strong> motion planning framework. The pipeline must generate collision-free joint trajectories in real time, fast enough to beat the ball to the intercept point:</p>
-          <ul>
-            <li><strong>MoveIt integration:</strong> The arm's URDF model was configured in MoveIt with collision meshes, joint limits, and planning groups. The planner generates smooth, collision-aware trajectories from any current configuration to the target catch pose.</li>
-            <li><strong>Gazebo simulation:</strong> The full system was developed and tested in Gazebo before deploying to the physical robot, using a simulated camera to validate the perception-to-planning pipeline end-to-end.</li>
-            <li><strong>Joint position tracking:</strong> Real-time joint state feedback (position x, y, z) was monitored against commanded trajectories using Foxglove, ensuring the physical arm accurately follows planned motions with minimal tracking error.</li>
-            <li><strong>Obstacle avoidance:</strong> MoveIt's collision-aware planning ensures the arm avoids workspace boundaries and known obstacles (tables, sensor mounts) while reaching the intercept pose.</li>
-          </ul>
+          <p>The arm uses a <strong>Model Predictive Controller (MPC)</strong> with a dynamic optimizer (QP solver) to generate real-time joint velocity commands. The controller incorporates the system model, cost function, and constraints to produce smooth, collision-free motions fast enough to beat the ball to the intercept point:</p>
           <div class="gallery">
+            <div class="gallery__item">
+              <img src="../assets/images/capstone/obstacle-avoidance-sim.gif" alt="Animated GIF showing simulated robot arm avoiding obstacles while moving to catch position" loading="lazy">
+              <div class="gallery__caption">Obstacle avoidance in simulation &mdash; arm navigating around obstacles to reach intercept pose</div>
+            </div>
             <div class="gallery__item">
               <img src="../assets/images/capstone/moveit-planning.png" alt="MoveIt motion planning interface in RViz showing robot arm with multiple planned trajectory paths" loading="lazy">
               <div class="gallery__caption">MoveIt motion planning in RViz &mdash; collision-aware trajectory generation</div>
             </div>
-            <div class="gallery__item">
-              <img src="../assets/images/capstone/gazebo-simulation.png" alt="Gazebo physics simulation showing robot arm with simulated camera rays for ball detection" loading="lazy">
-              <div class="gallery__caption">Gazebo simulation environment with camera ray visualization for testing</div>
-            </div>
           </div>
 
-          <!-- ==================== SYSTEM INTEGRATION ==================== -->
-          <h2>System Integration &amp; Testing</h2>
-          <p>Bringing the full pipeline together &mdash; perception, prediction, planning, and execution &mdash; required careful integration and iterative testing:</p>
-          <ul>
-            <li><strong>End-to-end latency:</strong> The total pipeline latency from ball detection to arm motion command was minimized to ensure the arm arrives at the intercept point before the ball.</li>
-            <li><strong>Joint tracking validation:</strong> Commanded vs. actual joint positions were logged and compared across all axes, confirming the arm faithfully executes planned trajectories with minimal overshoot.</li>
-            <li><strong>Iterative catch testing:</strong> The system progressed from simulation-only testing, to open-loop positioning tests, to closed-loop catch attempts with live ball throws.</li>
-          </ul>
+          <!-- ==================== TESTING ==================== -->
+          <h2>Testing &amp; Results</h2>
+          <p>The system progressed from simulation-only testing to closed-loop catch attempts with live ball throws. Real-time ball tracking accuracy and joint position tracking were validated using Foxglove:</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/capstone/joint-tracking.png" alt="Joint position tracking plots showing commanded vs actual positions across x, y, z axes over time" loading="lazy">
-              <div class="gallery__caption">Joint position tracking &mdash; commanded vs. actual positions across x, y, z axes</div>
+              <img src="../assets/images/capstone/ball-tracking-plots.png" alt="Ball position tracking plots showing estimated vs actual positions across x, y, z axes" loading="lazy">
+              <div class="gallery__caption">Ball tracking accuracy &mdash; estimated vs. actual position across x, y, z axes</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/capstone/stereo-calibration.png" alt="Stereo camera calibration showing dot pattern board detection in left and right camera views" loading="lazy">
-              <div class="gallery__caption">Stereo camera calibration &mdash; dot pattern detection for depth estimation</div>
+              <img src="../assets/images/capstone/workspace-layout.png" alt="SketchUp model showing workspace layout with robot arm, ToF camera, tracking camera, and obstacle boundaries" loading="lazy">
+              <div class="gallery__caption">SketchUp workspace layout &mdash; arm, ToF camera, tracking camera, and obstacle boundaries</div>
             </div>
           </div>
 
