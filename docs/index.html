@@ -26,7 +26,7 @@
       </button>
       <nav class="nav" aria-label="Main navigation">
         <ul class="nav__list">
-          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#hero" class="nav__link">About</a></li>
           <li><a href="#projects" class="nav__link">Projects</a></li>
           <li><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
@@ -36,51 +36,26 @@
 
   <!-- ====== Hero ====== -->
   <section class="hero" id="hero">
-    <div class="hero__content">
-      <p class="hero__greeting">Hello, I'm</p>
-      <h1 class="hero__name">Arye Mindell</h1>
-      <p class="hero__title">Electrical Engineer</p>
-      <p class="hero__tagline">Passionate about signal processing, embedded systems, audio technology, and the intersection of engineering with creative arts.</p>
-      <a href="#projects" class="hero__cta">
-        View My Work
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-      </a>
+    <div class="hero__card">
+      <img src="assets/images/profile-photo.png" alt="Arye Mindell" class="hero__photo">
+      <div class="hero__card-text">
+        <p class="hero__greeting">Hello, I'm</p>
+        <h1 class="hero__name">Arye Mindell</h1>
+        <p class="hero__title">Electrical Engineer</p>
+        <p class="hero__tagline">Signal processing, embedded systems, robotics, and deep learning. Background at Aurora Flight Sciences and Humatics Inc., with 4+ years of FIRST Robotics.</p>
+        <div class="hero__stats">
+          <div class="hero__stat"><span class="hero__stat-value">10+</span> Projects</div>
+          <div class="hero__stat"><span class="hero__stat-value">2</span> Internships</div>
+          <div class="hero__stat"><span class="hero__stat-value">EE</span> Degree</div>
+        </div>
+        <a href="#projects" class="hero__cta">
+          View My Work
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </div>
     </div>
     <div class="hero__scroll-hint" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-    </div>
-  </section>
-
-  <!-- ====== About ====== -->
-  <section class="about" id="about">
-    <div class="container">
-      <p class="section-label fade-in">About Me</p>
-      <h2 class="section-title fade-in">Engineer. Builder. Problem Solver.</h2>
-      <div class="about__grid">
-        <div class="about__text fade-in">
-          <p>I'm an electrical engineer with hands-on experience spanning signal processing, embedded systems, audio technology, and robotics. My background includes professional work at <strong>Aurora Flight Sciences</strong> and <strong>Humatics Inc.</strong>, where I contributed to precision positioning systems and autonomous platforms.</p>
-          <p>Through <strong>FIRST Robotics (Team 1389)</strong>, I developed reusable software libraries, autonomous path-following algorithms, computer vision systems, and real-time web dashboards. I'm also dedicated to STEM education and mentoring through LMU Hillel and community outreach.</p>
-          <p>I approach engineering with a focus on clean design, rigorous testing, and practical solutions -- whether that means designing a multi-stage op-amp, training a deep RL agent, or wiring a robot's electrical board on a rotating turret.</p>
-        </div>
-        <div class="about__highlights fade-in">
-          <div class="about__stat">
-            <div class="about__stat-value">10+</div>
-            <div class="about__stat-label">Portfolio Projects</div>
-          </div>
-          <div class="about__stat">
-            <div class="about__stat-value">2</div>
-            <div class="about__stat-label">Industry Internships</div>
-          </div>
-          <div class="about__stat">
-            <div class="about__stat-value">4+</div>
-            <div class="about__stat-label">Years FIRST Robotics</div>
-          </div>
-          <div class="about__stat">
-            <div class="about__stat-value">EE</div>
-            <div class="about__stat-label">Electrical Engineering</div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 

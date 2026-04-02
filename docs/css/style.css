@@ -308,6 +308,70 @@ button:focus-visible {
   z-index: 1;
 }
 
+.hero__card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid var(--color-border);
+  border-radius: 1.5rem;
+  padding: var(--space-10);
+  max-width: 900px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero__photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 3px solid var(--color-accent);
+  flex-shrink: 0;
+}
+
+.hero__card-text {
+  text-align: left;
+}
+
+.hero__stats {
+  display: flex;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.hero__stat {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.hero__stat-value {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .hero__card {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-8);
+    gap: var(--space-6);
+  }
+  .hero__card-text {
+    text-align: center;
+  }
+  .hero__photo {
+    width: 150px;
+    height: 150px;
+  }
+  .hero__stats {
+    justify-content: center;
+  }
+}
+
 .hero__content {
   position: relative;
   z-index: 2;
