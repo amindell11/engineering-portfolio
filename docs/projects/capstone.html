@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Senior Capstone | Arye Mindell</title>
-  <meta name="description" content="Senior capstone: autonomous ball-catching robotic arm using an ABB IRB 1200, LiDAR tracking, stereo vision, ROS 2 MoveIt motion planning, and Gazebo simulation.">
+  <meta name="description" content="Senior capstone: autonomous ball-catching robotic arm using an xArm5, ToF depth camera, stereo vision, ROS 2 MoveIt motion planning, and Gazebo simulation.">
   <meta property="og:title" content="Senior Capstone | Arye Mindell">
-  <meta property="og:description" content="Autonomous ball-catching robotic arm with LiDAR, computer vision, and ROS 2 MoveIt motion planning.">
+  <meta property="og:description" content="Autonomous ball-catching robotic arm with ToF depth camera, computer vision, and ROS 2 MoveIt motion planning.">
   <meta property="og:type" content="article">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%A1</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,11 +64,11 @@
 
           <!-- ==================== OVERVIEW ==================== -->
           <h2>Overview</h2>
-          <p>The senior capstone project is an <strong>autonomous ball-catching robotic arm</strong> system. The goal is for a robotic arm to detect a thrown ball in real time, predict its trajectory, plan a collision-free motion, and move to an intercept position to catch it &mdash; all within the fraction of a second the ball is in flight. The system integrates an ABB industrial robot arm, LiDAR-based 3D perception, stereo camera tracking, and ROS 2 with MoveIt for real-time motion planning.</p>
+          <p>The senior capstone project is an <strong>autonomous ball-catching robotic arm</strong> system. The goal is for a robotic arm to detect a thrown ball in real time, predict its trajectory, plan a collision-free motion, and move to an intercept position to catch it &mdash; all within the fraction of a second the ball is in flight. The system integrates an xArm5 robot arm, a Time-of-Flight (ToF) depth camera for 3D perception, stereo camera tracking, and ROS 2 with MoveIt for real-time motion planning.</p>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/capstone/arm-lab-setup.jpg" alt="ABB robotic arm in the lab with overhead LiDAR sensor and workspace setup" loading="lazy">
-              <div class="gallery__caption">Physical lab setup &mdash; ABB arm with overhead LiDAR sensor and catch workspace</div>
+              <img src="../assets/images/capstone/arm-lab-setup.jpg" alt="xArm5 robotic arm in the lab with overhead LiDAR sensor and workspace setup" loading="lazy">
+              <div class="gallery__caption">Physical lab setup &mdash; xArm5 with overhead LiDAR sensor and catch workspace</div>
             </div>
             <div class="gallery__item">
               <img src="../assets/images/capstone/workspace-layout.png" alt="SketchUp model showing workspace layout with robot arm, LiDAR, tracking camera, and obstacle boundaries" loading="lazy">
@@ -80,19 +80,19 @@
           <h2>Perception &amp; Sensor Fusion</h2>
           <p>The perception pipeline combines multiple sensing modalities to detect and track the ball in 3D space:</p>
           <ul>
-            <li><strong>LiDAR 3D scanning:</strong> An overhead LiDAR sensor provides a dense point cloud of the workspace, used for environment mapping, obstacle detection, and calibration of the sensor-to-robot coordinate frame.</li>
+            <li><strong>Time-of-Flight depth camera:</strong> An overhead ToF depth camera provides a dense point cloud of the workspace with higher accuracy than LiDAR-based 3D scanning, used for environment mapping, obstacle detection, and calibration of the sensor-to-robot coordinate frame.</li>
             <li><strong>Stereo camera calibration:</strong> A stereo camera pair was calibrated using a dot-pattern calibration board, enabling depth estimation from disparity for ball position triangulation.</li>
             <li><strong>Ball detection:</strong> Computer vision algorithms detect the ball in the camera feed, producing real-time 3D position estimates that feed into the trajectory predictor.</li>
-            <li><strong>Sensor-to-robot registration:</strong> Extrinsic calibration between the LiDAR, cameras, and the robot base frame ensures all position data is transformed into a common coordinate system for accurate motion planning.</li>
+            <li><strong>Sensor-to-robot registration:</strong> Extrinsic calibration between the ToF camera, stereo cameras, and the robot base frame ensures all position data is transformed into a common coordinate system for accurate motion planning.</li>
           </ul>
           <div class="gallery">
             <div class="gallery__item">
-              <img src="../assets/images/capstone/rviz-lidar-camera.png" alt="RViz visualization showing LiDAR point cloud overlaid on robot model alongside live camera feed" loading="lazy">
-              <div class="gallery__caption">RViz with LiDAR point cloud overlay and live camera feed &mdash; Foxglove bridge for visualization</div>
+              <img src="../assets/images/capstone/rviz-lidar-camera.png" alt="RViz visualization showing ToF depth camera point cloud overlaid on robot model alongside live camera feed" loading="lazy">
+              <div class="gallery__caption">RViz with ToF point cloud overlay and live camera feed &mdash; Foxglove bridge for visualization</div>
             </div>
             <div class="gallery__item">
-              <img src="../assets/images/capstone/lidar-calibration.png" alt="LiDAR 3D point cloud scan of calibration board used for sensor-to-robot registration" loading="lazy">
-              <div class="gallery__caption">LiDAR 3D scan of calibration board for sensor-to-robot coordinate registration</div>
+              <img src="../assets/images/capstone/lidar-calibration.png" alt="ToF depth camera 3D point cloud of calibration board used for sensor-to-robot registration" loading="lazy">
+              <div class="gallery__caption">ToF depth camera scan of calibration board for sensor-to-robot coordinate registration</div>
             </div>
           </div>
 
@@ -163,8 +163,8 @@
               <span class="tag">ROS 2</span>
               <span class="tag">MoveIt</span>
               <span class="tag">Gazebo</span>
-              <span class="tag">ABB Robotics</span>
-              <span class="tag">LiDAR</span>
+              <span class="tag">xArm5</span>
+              <span class="tag">ToF Depth Camera</span>
               <span class="tag">Computer Vision</span>
               <span class="tag">Stereo Cameras</span>
               <span class="tag">Python</span>
