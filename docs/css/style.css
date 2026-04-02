@@ -286,18 +286,18 @@ button:focus-visible {
 .hero::after {
   content: '';
   position: absolute;
-  inset: -10%;
-  width: 120%;
-  height: 120%;
-  background: url('../assets/images/hero-collage.jpg') center / cover no-repeat;
-  animation: hero-drift 30s ease-in-out infinite alternate;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: url('../assets/images/hero-collage.jpg') repeat-x left center / 50% 100%;
+  animation: hero-scroll 60s linear infinite;
   z-index: 0;
 }
 
-@keyframes hero-drift {
-  0%   { transform: translate(0, 0) scale(1.05); }
-  50%  { transform: translate(-3%, -2%) scale(1.1); }
-  100% { transform: translate(2%, -4%) scale(1.05); }
+@keyframes hero-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 .hero::before {
